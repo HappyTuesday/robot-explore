@@ -5,7 +5,7 @@ html:has(.game-shell), body:has(.game-shell) { height: 100%; overflow: hidden; o
   display: flex; flex-direction: column; overflow: hidden; background: #fafbf8;
   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
-.game-shell .site-header { flex: 0 0 58px; min-height: 0; height: 58px; width: 100%; max-width: none; padding: 0 24px; }
+.game-shell .site-header { flex: 0 0 50px; min-height: 0; height: 50px; width: 100%; max-width: none; padding: 0 24px; }
 .game-shell .brand { font-size: 16px; }
 .game-shell .brand-icon { width: 36px; height: 39px; border-radius: 11px; }
 .game-shell .brand-icon svg { width: 49px; height: 55px; }
@@ -14,16 +14,16 @@ html:has(.game-shell), body:has(.game-shell) { height: 100%; overflow: hidden; o
 .game-shell .site-header nav { margin-left: auto; margin-right: 22px; }
 .game-shell .site-header nav a { font-size: 12px; }
 .game-shell .site-footer { display: none; }
-.game-shell .game-main { display: flex; flex: 1; flex-direction: column; min-height: 0; width: 100%; max-width: 1600px; padding: 10px 24px 14px; margin: 0 auto; }
-.game-shell .game-breadcrumb { flex: 0 0 23px; font-size: 10px; }
-.game-shell .game-heading { flex: 0 0 61px; margin: 0 0 10px; min-height: 0; }
+.game-shell .game-main { display: flex; flex: 1; flex-direction: column; min-height: 0; width: 100%; max-width: none; padding: 4px 16px 10px; margin: 0 auto; }
+.game-shell .game-breadcrumb { flex: 0 0 20px; font-size: 10px; }
+.game-shell .game-heading { flex: 0 0 43px; margin: 0 0 6px; min-height: 0; }
 .game-shell .game-heading .eyebrow, .game-shell .game-heading p { display: none; }
 .game-shell .game-heading h1 { font-size: 25px; margin: 0; }
-.game-shell .play-layout { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) 232px; gap: 18px; align-items: stretch; }
+.game-shell .play-layout { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) 232px; gap: 14px; align-items: stretch; }
 .game-shell .play-panel { display: flex; flex-direction: column; min-height: 0; min-width: 0; }
-.game-shell .play-topbar { flex: 0 0 47px; padding: 6px 18px; }
-.game-shell .forest-playfield { display: flex; flex: 1; flex-direction: column; min-height: 0; padding: 0 18px; }
-.game-shell .board-stage { display: flex; flex: 1; align-items: center; justify-content: center; min-height: 0; min-width: 0; padding: 30px 9px 8px; }
+.game-shell .play-topbar { flex: 0 0 37px; padding: 2px 14px; }
+.game-shell .forest-playfield { display: flex; flex: 1; flex-direction: column; min-height: 0; padding: 0 10px; }
+.game-shell .board-stage { display: flex; flex: 1; align-items: center; justify-content: center; min-height: 0; min-width: 0; padding: 24px 6px 6px; }
 .game-shell .board {
   flex: none; margin: 0; max-width: none; gap: var(--board-gap);
   width: calc(var(--cols) * var(--cell-size) + (var(--cols) - 1) * var(--board-gap));
@@ -39,9 +39,9 @@ html:has(.game-shell), body:has(.game-shell) { height: 100%; overflow: hidden; o
 .game-shell .finish-icon svg { width: clamp(13px, calc(var(--cell-size) * .35), 33px); height: clamp(13px, calc(var(--cell-size) * .35), 33px); }
 .game-shell .finish-icon span { font-size: clamp(7px, calc(var(--cell-size) * .13), 10px); }
 .game-shell .monster-question-badge { width: clamp(10px, calc(var(--cell-size) * .21), 17px); height: clamp(10px, calc(var(--cell-size) * .21), 17px); font-size: clamp(7px, calc(var(--cell-size) * .14), 11px); line-height: 1.25; }
-.game-shell .board-hint { flex: 0 0 28px; margin: 0; }
-.game-shell .game-message { flex: 0 0 39px; min-height: 0; padding: 6px 10px; font-size: 11px; }
-.game-shell .legend { flex: 0 0 33px; padding: 7px; align-items: center; }
+.game-shell .board-hint { display: none; }
+.game-shell .game-message { flex: 0 0 32px; min-height: 0; padding: 6px 10px; font-size: 11px; }
+.game-shell .legend { flex: 0 0 26px; padding: 4px; align-items: center; }
 .game-shell .play-bottom { display: none; }
 .game-shell .companion-panel { min-height: 0; display: flex; flex-direction: column; padding: 18px; }
 .game-shell .companion-profile { margin-top: 18px; }
@@ -54,6 +54,23 @@ html:has(.game-shell), body:has(.game-shell) { height: 100%; overflow: hidden; o
 .game-shell .direction-pad { grid-template-columns: repeat(3, 44px); grid-template-rows: repeat(2, 44px); gap: 6px; }
 .game-shell .little-tip { margin-top: 17px; }
 .game-shell .control-section > p { white-space: normal; line-height: 1.6; }
+/* Prioritize the robot itself, rather than a frame around its tile. */
+.game-shell .board-cell.current {
+  border-color: transparent; border-width: 0; outline: none; box-shadow: none;
+  background: transparent;
+}
+.game-shell .board-cell.current .cell-robot svg { filter: drop-shadow(0 5px 3px #36563d30); }
+.game-shell .energy-section > div:first-child { font-size: 15px; color: #657955; }
+.game-shell .energy-section strong { font-size: 32px; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.game-shell .energy-section strong small { font-size: 13px; color: #7d8a70; }
+.game-shell .energy-track { height: 12px; }
+.game-shell .mini-stats strong { font-size: 32px; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.game-shell .mini-stats div > span { font-size: 13px; color: #738466; }
+.abandon-button { width: 100%; background: #f3f1e8; border: 1px solid #e4dfcf; color: #7d8064; margin-top: 15px; gap: 8px; min-height: 44px; padding: 9px; }
+.abandon-button > span { font-size: 10px; font-weight: 400; color: #999579; }
+.abandon-button:hover:not(:disabled) { background: #eae7da; }
+.abandon-button:disabled { opacity: .5; }
+
 @media (max-height: 800px) {
   .game-shell .little-tip, .game-shell .robot-status, .game-shell .energy-section > p { display: none; }
   .game-shell .companion-profile { margin-top: 12px; }
@@ -65,14 +82,14 @@ html:has(.game-shell), body:has(.game-shell) { height: 100%; overflow: hidden; o
   .game-shell .control-section { padding-top: 10px; }
 }
 @media (max-width: 1000px) and (orientation: portrait) {
-  .game-shell .site-header { padding: 0 12px; flex-basis: 51px; height: 51px; gap: 8px; }
+  .game-shell .site-header { padding: 0 12px; flex-basis: 47px; height: 47px; gap: 8px; }
   .game-shell .site-header nav { gap: 12px; margin: 0 0 0 auto; }
   .game-shell .site-header nav a { font-size: 10px; }
   .game-shell .brand { font-size: 13px; gap: 6px; }
   .game-shell .brand small { font-size: 5px; letter-spacing: 1px; }
   .game-shell .game-main { padding: 4px 12px 10px; }
-  .game-shell .game-breadcrumb { flex-basis: 23px; font-size: 9px; }
-  .game-shell .game-heading { flex-basis: 45px; margin-bottom: 6px; }
+  .game-shell .game-breadcrumb { flex-basis: 19px; font-size: 9px; }
+  .game-shell .game-heading { flex-basis: 38px; margin-bottom: 5px; }
   .game-shell .game-heading h1 { font-size: 19px; }
   .game-shell .game-heading-actions { gap: 5px; }
   .game-shell .game-heading-actions button { min-height: 34px; height: 34px; }
@@ -84,17 +101,18 @@ html:has(.game-shell), body:has(.game-shell) { height: 100%; overflow: hidden; o
   .game-shell .board-hint { flex-basis: 23px; font-size: 8px; }
   .game-shell .game-message { flex-basis: 33px; font-size: 9px; }
   .game-shell .legend { flex-basis: 27px; gap: 12px; font-size: 8px; padding: 4px; }
-  .game-shell .companion-panel { display: grid; grid-template-columns: minmax(0, 1fr) 142px; grid-template-rows: 29px 39px 27px; gap: 4px 13px; padding: 10px 13px; }
+  .game-shell .companion-panel { display: grid; grid-template-columns: minmax(0, 1fr) 142px; grid-template-rows: 17px 45px 32px; gap: 4px 13px; padding: 10px 13px; }
   .game-shell .companion-heading, .game-shell .companion-portrait, .game-shell .robot-status, .game-shell .little-tip, .game-shell .energy-section > p { display: none; }
   .game-shell .companion-profile { grid-column: 1; grid-row: 1; display: block; text-align: left; margin: 0; align-self: center; }
   .game-shell .companion-profile h2 { margin: 0; font-size: 10px; }
   .game-shell .energy-section { grid-column: 1; grid-row: 2; margin: 0; }
-  .game-shell .energy-section strong { font-size: 16px; }
+  .game-shell .energy-section strong { font-size: 24px; }
   .game-shell .energy-track { margin-top: 5px; height: 7px; }
-  .game-shell .mini-stats { grid-column: 1; grid-row: 3; border: 0; margin: 0; padding: 0; justify-content: flex-start; gap: 15px; }
+  .game-shell .mini-stats { grid-column: 1; grid-row: 3; border: 0; margin: 0; padding: 0; justify-content: flex-start; gap: 10px; }
   .game-shell .mini-stats > div { display: flex; gap: 4px; }
-  .game-shell .mini-stats > span, .game-shell .mini-stats div > span { display: none; }
-  .game-shell .mini-stats strong { font-size: 14px; }
+  .game-shell .mini-stats > span { display: none; }
+  .game-shell .mini-stats div > span { display: inline; font-size: 9px; color: #728265; }
+  .game-shell .mini-stats strong { font-size: 22px; }
   .game-shell .mini-stats svg { width: 14px; height: 14px; }
   .game-shell .control-section { grid-column: 2; grid-row: 1 / 4; margin: 0; padding: 0; border: 0; align-self: center; }
   .game-shell .control-label, .game-shell .control-section > p { display: none; }
@@ -117,9 +135,9 @@ html:has(.game-shell), body:has(.game-shell) { height: 100%; overflow: hidden; o
   .game-shell .legend { flex-basis: 23px; font-size: 8px; padding: 3px; }
   .game-shell .companion-panel { padding: 12px; }
   .game-shell .energy-section { margin: 0; }
-  .game-shell .energy-section > div:first-child { font-size: 9px; }
+  .game-shell .energy-section > div:first-child { font-size: 13px; }
   .game-shell .mini-stats { margin-top: 10px; padding: 7px 0; }
-  .game-shell .mini-stats strong { font-size: 17px; }
+  .game-shell .mini-stats strong { font-size: 26px; }
   .game-shell .control-section { padding-top: 10px; }
   .game-shell .direction-pad { margin: 0; grid-template-columns: repeat(3, 42px); grid-template-rows: repeat(2, 42px); gap: 5px; }
 }
@@ -162,20 +180,50 @@ html:has(.game-shell), body:has(.game-shell) { height: 100%; overflow: hidden; o
   .game-shell .result-modal .result-home { margin-top: 4px; padding: 4px; }
 }
 @media (min-width: 701px) and (max-width: 1000px) and (orientation: portrait) {
-  .game-shell .site-header { flex-basis: 58px; height: 58px; padding: 0 22px; }
+  .game-shell .site-header { flex-basis: 50px; height: 50px; padding: 0 22px; }
   .game-shell .brand { font-size: 16px; }
   .game-shell .brand small { font-size: 7px; }
   .game-shell .site-header nav a { font-size: 12px; }
-  .game-shell .game-main { padding: 10px 20px 15px; }
-  .game-shell .game-heading { flex-basis: 54px; margin-bottom: 10px; }
+  .game-shell .game-main { padding: 4px 16px 10px; }
+  .game-shell .game-heading { flex-basis: 43px; margin-bottom: 6px; }
   .game-shell .game-heading h1 { font-size: 24px; }
-  .game-shell .play-layout { grid-template-rows: minmax(0, 1fr) 136px; gap: 14px; }
-  .game-shell .play-topbar { flex-basis: 43px; padding: 4px 16px; }
+  .game-shell .play-layout { grid-template-rows: minmax(0, 1fr) 127px; gap: 10px; }
+  .game-shell .play-topbar { flex-basis: 37px; padding: 2px 14px; }
   .game-shell .game-message { flex-basis: 37px; font-size: 11px; }
   .game-shell .legend { flex-basis: 30px; font-size: 9px; }
-  .game-shell .companion-panel { padding: 14px 24px; grid-template-columns: minmax(0, 1fr) 190px; }
+  .game-shell .companion-panel { padding: 10px 24px; grid-template-columns: minmax(0, 1fr) 190px; }
   .game-shell .companion-profile h2 { font-size: 12px; }
   .game-shell .energy-section { max-width: 330px; }
   .game-shell .energy-section > div:first-child { font-size: 11px; }
   .game-shell .direction-pad { grid-template-columns: repeat(3, 45px); grid-template-rows: repeat(2, 45px); gap: 6px; }
+}
+
+@media (max-height: 600px) {
+  .game-shell .question-modal { padding: 14px 24px; }
+  .game-shell .question-monster { width: 49px; height: 43px; }
+  .game-shell .question-modal > p { margin-bottom: 7px; }
+  .game-shell .question-modal .equation { margin: 7px 0; }
+  .game-shell .abandon-button { margin-top: 9px; min-height: 40px; padding: 6px; }
+}
+@media (max-width: 360px) and (orientation: portrait) {
+  .game-shell .companion-panel { grid-template-columns: minmax(0, 1fr) 126px; gap: 4px 6px; padding: 10px; }
+  .game-shell .direction-pad { grid-template-columns: repeat(3, 39px); grid-template-rows: repeat(2, 43px); gap: 4px; }
+  .game-shell .mini-stats { gap: 8px; }
+  .game-shell .mini-stats svg { display: none; }
+  .game-shell .mini-stats div > span { font-size: 8px; }
+}
+@media (max-width: 700px) and (orientation: portrait) {
+  .game-shell .energy-section > div:first-child { font-size: 11px; gap: 4px; }
+  .game-shell .energy-section > div:first-child > span { white-space: nowrap; gap: 3px; }
+  .game-shell .energy-section > div:first-child svg { width: 14px; height: 14px; }
+  .game-shell .energy-section strong { white-space: nowrap; font-size: 24px; }
+  .game-shell .energy-section strong small { font-size: 10px; }
+}
+@media (min-height: 601px) and (max-height: 750px) {
+  .game-shell .question-modal { padding: 24px; }
+  .game-shell .question-monster { width: 85px; height: 75px; margin-bottom: 5px; }
+  .game-shell .question-modal h2 { margin: 10px 0; }
+  .game-shell .question-modal .equation { margin: 14px 0; }
+  .game-shell .question-modal .answer-grid button { height: 56px; }
+  .game-shell .question-foot { display: none; }
 }

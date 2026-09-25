@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { answerQuestion, createGame, isAdjacent, makeQuestion, move, seededRandom } from './engine';
+import { ABANDON_ENERGY_COST, abandonChallenge, answerQuestion, createGame, isAdjacent, makeQuestion, move, seededRandom } from './engine';
 import type { Difficulty } from './engine';
 describe('彩虹能量迷宫', () => {
   it('creates deterministic M×N boards with distinct colors and all mechanics', () => {
@@ -34,6 +34,65 @@ describe('彩虹能量迷宫', () => {
     const passed=answerQuestion(s,s.question!.answer);
     expect(passed.status).toBe('playing');expect(passed.monsters).toBe(1);
     expect(move(move(passed,1),2).status).toBe('playing');
+  });
+  it('keeps the robot outside a monster tile until it wins the challenge', () => {
+    const before = move(createGame('easy', 42), 1);
+    const challenge = move(before, 2);
+    expect(challenge.position).toBe(before.position);
+    expect(challenge.visited).toEqual(before.visited);
+    expect(challenge.steps).toBe(before.steps);
+    expect(challenge.challengeTarget).toBe(2);
+    const passed = answerQuestion(challenge, challenge.question!.answer);
+    expect(passed.position).toBe(2);
+    expect(passed.visited).toContain(2);
+    expect(passed.steps).toBe(before.steps + 1);
+    expect(passed.monsters).toBe(before.monsters + 1);
+    expect(passed.challengeTarget).toBeNull();
+  });
+  it('abandon costs exactly one energy, preserves location and leaves the monster undefeated', () => {
+    const before = move(createGame('easy', 42), 1);
+    const retreated = abandonChallenge(move(before, 2));
+    expect(ABANDON_ENERGY_COST).toBe(1);
+    expect(retreated.energy).toBe(before.energy - 1);
+    expect(retreated.position).toBe(before.position);
+    expect(retreated.steps).toBe(before.steps);
+    expect(retreated.visited).toEqual(before.visited);
+    expect(retreated.monsters).toBe(before.monsters);
+    expect(retreated.question).toBeNull();
+    expect(retreated.challengeTarget).toBeNull();
+    expect(retreated.status).toBe('playing');
+    expect(move(retreated, 3)).toBe(retreated); // Cannot jump past the monster.
+    const retried = move(retreated, 2);
+    expect(retried.status).toBe('question');
+    expect(retried.position).toBe(1);
+    expect(abandonChallenge(retried).energy).toBe(before.energy - 2);
+    const passed = answerQuestion(retried, retried.question!.answer);
+    expect(passed.position).toBe(2);
+    expect(passed.monsters).toBe(1);
+    expect(move(move(passed, 1), 2).status).toBe('playing');
+  });
+  it('cannot regenerate a consumed boost by abandoning and revisiting', () => {
+    const retreated = abandonChallenge(move(move(createGame('easy', 42), 1), 2));
+    expect(move(move(retreated, 0), 1).energy).toBe(74);
+  });
+  it('abandoning with one energy explodes on the original tile and cannot charge twice', () => {
+    const before = { ...move(createGame('easy', 42), 1), energy: 1 };
+    const lost = abandonChallenge(move(before, 2));
+    expect(lost.energy).toBe(0);
+    expect(lost.status).toBe('lost');
+    expect(lost.position).toBe(1);
+    expect(lost.visited).not.toContain(2);
+    expect(abandonChallenge(lost)).toBe(lost);
+    expect(answerQuestion(lost, 3)).toBe(lost);
+    expect(move(lost, 0)).toBe(lost);
+  });
+  it('abandon is a no-op outside a challenge, including after answering correctly', () => {
+    const s = createGame('easy', 1);
+    expect(abandonChallenge(s)).toBe(s);
+    const challenge = move(move(s, 1), 2);
+    const passed = answerQuestion(challenge, challenge.question!.answer);
+    expect(abandonChallenge(passed)).toBe(passed);
+    expect(answerQuestion(passed, 0)).toBe(passed);
   });
   it('all generated questions and choices stay within 0–20 with one correct choice', () => {
     const random=seededRandom(2026);

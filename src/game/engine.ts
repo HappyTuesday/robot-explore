@@ -5,7 +5,8 @@ export type Difficulty = 'easy' | 'normal' | 'hard';
 export const DIFFICULTIES: Record<Difficulty, { label: string; rows: number; cols: number }> = {
   easy: { label: '轻松探索', rows: 4, cols: 5 }, normal: { label: '勇敢冒险', rows: 5, cols: 6 }, hard: { label: '超级挑战', rows: 6, cols: 7 },
 };
-export type GameState = { tiles: Tile[]; rows: number; cols: number; position: number; energy: number; steps: number; visited: number[]; status: 'playing' | 'question' | 'won' | 'lost'; question: Question | null; message: string; lastEffect: 'boost' | 'drain' | 'move' | 'correct'; monsters: number; seed: number; level: number; difficulty: Difficulty };
+export const ABANDON_ENERGY_COST = 1;
+export type GameState = { tiles: Tile[]; rows: number; cols: number; position: number; energy: number; steps: number; visited: number[]; status: 'playing' | 'question' | 'won' | 'lost'; question: Question | null; challengeTarget: number | null; message: string; lastEffect: 'boost' | 'drain' | 'move' | 'correct'; monsters: number; seed: number; level: number; difficulty: Difficulty };
 export function seededRandom(seed: number) { let s = seed >>> 0; return () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; }; }
 export function makeQuestion(random = Math.random): Question {
   const add = random() > .4;
@@ -31,25 +32,52 @@ export function createGame(difficulty: Difficulty = 'easy', seed = Math.floor(Ma
     const hue = { start: 148, finish: 44, boost: 150, drain: 15, plain: 210, monster: 265 }[kind];
     return { kind, amount: kind === 'boost' ? 15 : kind === 'drain' ? -(20 + Math.min(level - 1, 4) * 5) : 0, color: `hsl(${hue + index * .31}  ${kind === 'plain' ? 36 : 58}% ${86 - index * .11}%)` };
   });
-  return { tiles, rows, cols, position: 0, energy: 60, steps: 0, visited: [0], status: 'playing', question: null, message: '点击相邻的格子，出发吧！', lastEffect: 'move', monsters: 0, seed, level, difficulty };
+  return { tiles, rows, cols, position: 0, energy: 60, steps: 0, visited: [0], status: 'playing', question: null, challengeTarget: null, message: '点击相邻的格子，出发吧！', lastEffect: 'move', monsters: 0, seed, level, difficulty };
 }
 export function isAdjacent(state: GameState, target: number) {
   return target >= 0 && target < state.tiles.length && Math.abs(Math.floor(target / state.cols) - Math.floor(state.position / state.cols)) + Math.abs(target % state.cols - state.position % state.cols) === 1;
 }
 export function move(state: GameState, target: number): GameState {
   if (state.status !== 'playing' || !isAdjacent(state, target)) return state;
-  const tile = state.tiles[target]; const firstVisit = !state.visited.includes(target);
+  const tile = state.tiles[target];
+  const firstVisit = !state.visited.includes(target);
+  // A monster blocks entry until its question is answered correctly.
+  // Keep position, visited tiles, and completed steps unchanged during a challenge.
+  if (tile.kind === 'monster' && firstVisit) {
+    return {
+      ...state, status: 'question', challengeTarget: target,
+      question: makeQuestion(seededRandom(state.seed + target * 137 + state.steps)),
+      lastEffect: 'move', message: '小怪兽挡住了去路，答对题目就能通过！',
+    };
+  }
   const energy = Math.max(0, Math.min(100, state.energy + (firstVisit ? tile.amount : 0)));
-  let status: GameState['status'] = energy <= 0 ? 'lost' : tile.kind === 'finish' ? 'won' : 'playing';
-  if (status === 'playing' && tile.kind === 'monster' && firstVisit) status = 'question';
-  return { ...state, position: target, energy, steps: state.steps + 1, visited: firstVisit ? [...state.visited, target] : state.visited, status,
-    question: status === 'question' ? makeQuestion(seededRandom(state.seed + target * 137 + state.steps)) : null,
+  const status: GameState['status'] = energy <= 0 ? 'lost' : tile.kind === 'finish' ? 'won' : 'playing';
+  return {
+    ...state, position: target, energy, steps: state.steps + 1,
+    visited: firstVisit ? [...state.visited, target] : state.visited,
+    status, question: null, challengeTarget: null,
     lastEffect: firstVisit && (tile.kind === 'boost' || tile.kind === 'drain') ? tile.kind : 'move',
-    message: status === 'lost' ? '能量耗尽了，下次试试绿色路线！' : status === 'won' ? '到达终点！你是真正的小小探险家！' : !firstVisit ? '这块格子已经探索过啦，继续前进吧。' : tile.kind === 'boost' ? '充能成功！能量 +15，感觉更有力量啦！' : tile.kind === 'drain' ? `小心！能量 ${tile.amount}，寻找绿色补给。` : tile.kind === 'monster' ? '小怪兽出题啦，用智慧打败它！' : '好样的，离终点又近了一步！',
+    message: status === 'lost' ? '能量耗尽了，下次试试绿色路线！' : status === 'won' ? '到达终点！你是真正的小小探险家！' : !firstVisit ? '这块格子已经探索过啦，继续前进吧。' : tile.kind === 'boost' ? '充能成功！能量 +15，感觉更有力量啦！' : tile.kind === 'drain' ? `小心！能量 ${tile.amount}，寻找绿色补给。` : '好样的，离终点又近了一步！',
   };
 }
 export function answerQuestion(state: GameState, answer: number): GameState {
-  if (state.status !== 'question' || !state.question) return state;
+  if (state.status !== 'question' || !state.question || state.challengeTarget === null) return state;
   const correct = answer === state.question.answer;
-  return { ...state, status: correct ? 'playing' : 'lost', question: null, monsters: state.monsters + (correct ? 1 : 0), lastEffect: correct ? 'correct' : 'drain', message: correct ? '答对啦！小怪兽为你让路，继续探险！' : `正确答案是 ${state.question.answer}。再接再厉，你一定可以！` };
+  return {
+    ...state, status: correct ? 'playing' : 'lost', question: null, challengeTarget: null,
+    position: correct ? state.challengeTarget : state.position,
+    visited: correct ? [...state.visited, state.challengeTarget] : state.visited,
+    steps: state.steps + (correct ? 1 : 0), monsters: state.monsters + (correct ? 1 : 0),
+    lastEffect: correct ? 'correct' : 'drain',
+    message: correct ? '答对啦！小怪兽为你让路，继续探险！' : `正确答案是 ${state.question.answer}。再接再厉，你一定可以！`,
+  };
+}
+export function abandonChallenge(state: GameState): GameState {
+  if (state.status !== 'question' || !state.question || state.challengeTarget === null) return state;
+  const energy = Math.max(0, state.energy - ABANDON_ENERGY_COST);
+  return {
+    ...state, energy, status: energy === 0 ? 'lost' : 'playing',
+    question: null, challengeTarget: null, lastEffect: 'drain',
+    message: energy === 0 ? '能量耗尽了，充好电再来探索吧！' : `暂时放弃，能量 −${ABANDON_ENERGY_COST}。留在原地，试试其他路线吧！`,
+  };
 }

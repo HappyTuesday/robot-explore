@@ -56,3 +56,26 @@ test('map sizes, dialog keyboard gating, and accessible navigation',async({page}
   await page.keyboard.press('ArrowRight');await expect(page.locator('[data-index="1"]')).toHaveClass(/current/);
   await page.getByRole('button',{name:'重新开始本关',exact:true}).click();await page.getByRole('button',{name:'准备好了，重新出发'}).click();await expect(page.locator('[data-index="0"]')).toHaveClass(/current/);
 });
+test('abandoning keeps the original tile, costs one energy, and requires a new challenge to pass',async({page})=>{
+  await enter(page);
+  await page.locator('[data-index="1"]').click();
+  for(const energy of [74,73]) {
+    await page.locator('[data-index="2"]').click();
+    await expect(page.locator('[data-index="1"]')).toHaveClass(/current/);
+    await expect(page.locator('[data-index="2"] .cell-monster')).toBeAttached();
+    await page.getByRole('button',{name:/放弃挑战/}).click();
+    await expect(page.getByRole('dialog')).toHaveCount(0);
+    await expect(page.getByRole('progressbar')).toHaveAttribute('aria-valuenow',String(energy));
+    await expect(page.locator('[data-index="1"]')).toHaveClass(/current/);
+    await expect(page.locator('[data-index="2"]')).not.toHaveClass(/visited/);
+    await expect(page.locator('[data-index="3"]')).toBeDisabled();
+    await expect(page.locator('.mini-stats strong').first()).toHaveText('1');
+    await expect(page.locator('.mini-stats strong').last()).toHaveText('0');
+  }
+  await page.locator('[data-index="2"]').click();await solveQuestion(page);
+  await expect(page.locator('[data-index="2"]')).toHaveClass(/current/);
+  await expect(page.locator('.mini-stats strong').last()).toHaveText('1');
+  await expect(page.getByRole('progressbar')).toHaveAttribute('aria-valuenow','73');
+  await page.locator('[data-index="1"]').click();await page.locator('[data-index="2"]').click();
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+});
