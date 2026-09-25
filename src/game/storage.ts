@@ -1,0 +1,4 @@
+export type Progress = { wins: number; stars: number; monsters: number; highestLevel: number; sound: boolean };
+const initial: Progress = { wins: 0, stars: 0, monsters: 0, highestLevel: 1, sound: true };
+export function loadProgress(): Progress { try { const p = JSON.parse(localStorage.getItem('little-explorer-v1') || '{}'); return { wins: Number.isFinite(p.wins) ? Math.max(0, p.wins) : 0, stars: Number.isFinite(p.stars) ? Math.max(0, p.stars) : 0, monsters: Number.isFinite(p.monsters) ? Math.max(0, p.monsters) : 0, highestLevel: Number.isFinite(p.highestLevel) ? Math.max(1, Math.min(9, p.highestLevel)) : 1, sound: typeof p.sound === 'boolean' ? p.sound : true }; } catch { return initial; } }
+export function saveProgress(p: Progress) { try { localStorage.setItem('little-explorer-v1', JSON.stringify(p)); } catch { /* Private browsing can disable storage. */ } }

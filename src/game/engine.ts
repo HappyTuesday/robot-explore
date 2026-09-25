@@ -1,0 +1,55 @@
+export type TileKind = 'start' | 'finish' | 'boost' | 'drain' | 'plain' | 'monster';
+export type Tile = { kind: TileKind; amount: number; color: string };
+export type Question = { a: number; b: number; operator: '+' | '−'; answer: number; choices: number[] };
+export type Difficulty = 'easy' | 'normal' | 'hard';
+export const DIFFICULTIES: Record<Difficulty, { label: string; rows: number; cols: number }> = {
+  easy: { label: '轻松探索', rows: 4, cols: 5 }, normal: { label: '勇敢冒险', rows: 5, cols: 6 }, hard: { label: '超级挑战', rows: 6, cols: 7 },
+};
+export type GameState = { tiles: Tile[]; rows: number; cols: number; position: number; energy: number; steps: number; visited: number[]; status: 'playing' | 'question' | 'won' | 'lost'; question: Question | null; message: string; lastEffect: 'boost' | 'drain' | 'move' | 'correct'; monsters: number; seed: number; level: number; difficulty: Difficulty };
+export function seededRandom(seed: number) { let s = seed >>> 0; return () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; }; }
+export function makeQuestion(random = Math.random): Question {
+  const add = random() > .4;
+  const a = Math.floor(random() * 16) + 1;
+  const b = Math.floor(random() * (add ? 21 - a : a + 1));
+  const answer = add ? a + b : a - b;
+  const wrong = Array.from({ length: 21 }, (_, i) => i).filter(i => i !== answer);
+  for (let i = wrong.length - 1; i > 0; i--) { const j = Math.floor(random() * (i + 1)); [wrong[i], wrong[j]] = [wrong[j], wrong[i]]; }
+  const choices = [answer, ...wrong.slice(0, 3)];
+  for (let i = choices.length - 1; i > 0; i--) { const j = Math.floor(random() * (i + 1)); [choices[i], choices[j]] = [choices[j], choices[i]]; }
+  return { a, b, operator: add ? '+' : '−', answer, choices };
+}
+export function createGame(difficulty: Difficulty = 'easy', seed = Math.floor(Math.random() * 1e8), level = 1): GameState {
+  const { rows, cols } = DIFFICULTIES[difficulty]; const random = seededRandom(seed);
+  const tiles: Tile[] = Array.from({ length: rows * cols }, (_, index) => {
+    let kind: TileKind = 'plain'; const roll = random();
+    if (roll < .27) kind = 'boost'; else if (roll < .52) kind = 'drain'; else if (roll < .71) kind = 'monster';
+    // A safe energy route always exists across the top and down the right edge.
+    if ((index < cols || index % cols === cols - 1) && kind === 'drain') kind = 'boost';
+    if (index === 0) kind = 'start'; else if (index === rows * cols - 1) kind = 'finish';
+    // Each board includes all mechanics, while preserving its safe route.
+    if (index === cols) kind = 'drain'; if (index === 1) kind = 'boost'; if (index === 2) kind = 'monster';
+    const hue = { start: 148, finish: 44, boost: 150, drain: 15, plain: 210, monster: 265 }[kind];
+    return { kind, amount: kind === 'boost' ? 15 : kind === 'drain' ? -(20 + Math.min(level - 1, 4) * 5) : 0, color: `hsl(${hue + index * .31}  ${kind === 'plain' ? 36 : 58}% ${86 - index * .11}%)` };
+  });
+  return { tiles, rows, cols, position: 0, energy: 60, steps: 0, visited: [0], status: 'playing', question: null, message: '点击相邻的格子，出发吧！', lastEffect: 'move', monsters: 0, seed, level, difficulty };
+}
+export function isAdjacent(state: GameState, target: number) {
+  return target >= 0 && target < state.tiles.length && Math.abs(Math.floor(target / state.cols) - Math.floor(state.position / state.cols)) + Math.abs(target % state.cols - state.position % state.cols) === 1;
+}
+export function move(state: GameState, target: number): GameState {
+  if (state.status !== 'playing' || !isAdjacent(state, target)) return state;
+  const tile = state.tiles[target]; const firstVisit = !state.visited.includes(target);
+  const energy = Math.max(0, Math.min(100, state.energy + (firstVisit ? tile.amount : 0)));
+  let status: GameState['status'] = energy <= 0 ? 'lost' : tile.kind === 'finish' ? 'won' : 'playing';
+  if (status === 'playing' && tile.kind === 'monster' && firstVisit) status = 'question';
+  return { ...state, position: target, energy, steps: state.steps + 1, visited: firstVisit ? [...state.visited, target] : state.visited, status,
+    question: status === 'question' ? makeQuestion(seededRandom(state.seed + target * 137 + state.steps)) : null,
+    lastEffect: firstVisit && (tile.kind === 'boost' || tile.kind === 'drain') ? tile.kind : 'move',
+    message: status === 'lost' ? '能量耗尽了，下次试试绿色路线！' : status === 'won' ? '到达终点！你是真正的小小探险家！' : !firstVisit ? '这块格子已经探索过啦，继续前进吧。' : tile.kind === 'boost' ? '充能成功！能量 +15，感觉更有力量啦！' : tile.kind === 'drain' ? `小心！能量 ${tile.amount}，寻找绿色补给。` : tile.kind === 'monster' ? '小怪兽出题啦，用智慧打败它！' : '好样的，离终点又近了一步！',
+  };
+}
+export function answerQuestion(state: GameState, answer: number): GameState {
+  if (state.status !== 'question' || !state.question) return state;
+  const correct = answer === state.question.answer;
+  return { ...state, status: correct ? 'playing' : 'lost', question: null, monsters: state.monsters + (correct ? 1 : 0), lastEffect: correct ? 'correct' : 'drain', message: correct ? '答对啦！小怪兽为你让路，继续探险！' : `正确答案是 ${state.question.answer}。再接再厉，你一定可以！` };
+}
