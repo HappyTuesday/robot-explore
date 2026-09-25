@@ -20,6 +20,18 @@ npm run test:e2e     # 端到端测试，使用本机 Chrome 与 Playwright WebK
 
 端到端测试前请安装 Google Chrome，并执行 `npx playwright install webkit`。测试覆盖桌面 Chrome、手机触屏和 iPad WebKit。
 
+## GitHub Pages 部署
+
+已配置 `.github/workflows/deploy-pages.yml`：向 `main` 推送时自动运行单元测试、构建并部署；指向 `main` 的 Pull Request 只运行测试和构建。也可以在 Actions 页面手动运行 workflow，部署仅允许 `main` 分支。
+
+首次启用：
+
+1. 在 GitHub 仓库 **Settings → Pages → Build and deployment** 中，将 **Source** 设置为 **GitHub Actions**。
+2. 将代码及 workflow 推送到 `main`，或在 **Actions → Build and deploy to GitHub Pages → Run workflow** 中选择 `main` 运行。
+3. 部署成功后访问 `https://happytuesday.github.io/robot-explore/`，实际地址以部署任务输出为准。
+
+构建使用 Node.js 22、`npm ci` 和 `npm run build`，发布目录为 `dist/`，无需额外配置部署密钥。Vite 使用相对资源路径，Web App Manifest 也使用相对入口，支持 GitHub Pages 的仓库子路径；Hash 路由无需额外的 404 回退页面。
+
 ## 页面
 
 - `/#/`：游戏大厅

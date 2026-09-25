@@ -1,0 +1,12 @@
+{
+  "id": "./",
+  "name": "小小探险家 · 机器人探险乐园",
+  "short_name": "小小探险家",
+  "lang": "zh-CN",
+  "start_url": "./#/",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fafbf8",
+  "theme_color": "#fafbf8",
+  "icons": [{ "src": "./favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
