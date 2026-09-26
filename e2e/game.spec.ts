@@ -32,13 +32,14 @@ test('energy, correct math, win, saved achievements, and next level',async({page
   await page.getByRole('link',{name:'我的成就'}).click();await expect(page.getByText('已获得 · 你真棒！')).toHaveCount(1);
   await page.reload();await expect(page.getByText('已获得 · 你真棒！')).toHaveCount(1);
 });
-test('wrong answer triggers explosion and same-map retry',async({page})=>{
+test('wrong answers get a retry, then trigger explosion and same-map retry',async({page})=>{
   await enter(page);const layout=await page.locator('.board-cell').evaluateAll(cells=>cells.map(c=>c.getAttribute('data-kind')));
   await page.locator('[data-index="1"]').click();await page.locator('[data-index="2"]').click();
   const text=(await page.locator('.equation').textContent())!;const match=text.match(/(\d+)\s*([+−])\s*(\d+)/)!;
   const answer=match[2]==='+'?+match[1]+ +match[3]:+match[1]- +match[3];
-  for(const button of await page.locator('.answer-grid button').all()){if(Number(await button.textContent())!==answer){await button.click();break;}}
-  await expect(page.locator('.explosion')).toBeAttached();
+  for (const button of await page.locator('.answer-grid button').all()) { if (Number(await button.textContent()) !== answer) { await button.click(); break; } }
+  await expect(page.getByText('这个答案先放一边，我们再看一看图形吧！')).toBeVisible();
+  for (const button of await page.locator('.answer-grid button').all()) { if (Number(await button.textContent()) !== answer && !(await button.getAttribute('class'))?.includes('rejected-answer')) { await button.click(); break; } }
   await expect(page.getByRole('heading',{name:'再接再厉，你一定可以！'})).toBeVisible();
   await page.getByRole('button',{name:'再试一次',exact:true}).click();
   await expect(page.locator('[data-index="0"]')).toHaveClass(/current/);

@@ -227,3 +227,23 @@ html:has(.game-shell), body:has(.game-shell) { height: 100%; overflow: hidden; o
   .game-shell .question-modal .answer-grid button { height: 56px; }
   .game-shell .question-foot { display: none; }
 }
+
+/* Guided math challenge: quantities stay concrete before the answer choices appear. */
+.math-visual { display:flex; align-items:center; justify-content:center; gap:14px; min-height:38px; margin:4px 0 2px; }
+.math-group { display:flex; flex-wrap:wrap; justify-content:center; gap:4px; max-width:130px; }
+.math-group i { color:#e9a95f; font-style:normal; font-size:15px; line-height:1; filter:drop-shadow(0 2px 0 #d68d4d35); animation:math-pop .35s both; animation-delay:calc(var(--i) * 35ms); }
+.group-b i { color:#8bb9a0; }
+.visual-operator { color:#9b9c7c; font-size:20px; font-weight:800; }
+.math-tip { display:flex; align-items:center; justify-content:center; gap:6px; color:#697c61; background:#f0f4e8; border-radius:10px; padding:7px 10px; margin:4px auto 10px; font-size:11px; line-height:1.35; }
+.math-tip svg { color:#d69e56; flex:none; }
+.math-tip b { color:#477d61; }
+.rejected-answer { color:#b9b4a7 !important; background:#f1efea !important; text-decoration:line-through; opacity:.72; }
+.retry-hint { color:#8c886f; font-size:10px !important; margin:7px 0 0 !important; }
+@keyframes math-pop { from { opacity:0; transform:scale(.5) translateY(5px); } to { opacity:1; transform:scale(1) translateY(0); } }
+@media (max-height:600px) {
+  .game-shell .math-visual { min-height:27px; gap:8px; }
+  .game-shell .math-group { max-width:105px; gap:2px; }
+  .game-shell .math-group i { font-size:11px; }
+  .game-shell .math-tip { margin:3px auto 6px; padding:4px 7px; font-size:9px; }
+  .game-shell .retry-hint { margin:4px 0 0 !important; }
+}

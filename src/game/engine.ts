@@ -1,6 +1,6 @@
 export type TileKind = 'start' | 'finish' | 'boost' | 'drain' | 'plain' | 'monster';
 export type Tile = { kind: TileKind; amount: number; color: string };
-export type Question = { a: number; b: number; operator: '+' | '−'; answer: number; choices: number[] };
+export type Question = { a: number; b: number; operator: '+' | '−'; answer: number; choices: number[]; strategy: 'count-all' | 'make-ten' | 'split-number' | 'double'; rejected: number[] };
 export type Difficulty = 'easy' | 'normal' | 'hard';
 export const DIFFICULTIES: Record<Difficulty, { label: string; rows: number; cols: number }> = {
   easy: { label: '轻松探索', rows: 4, cols: 5 }, normal: { label: '勇敢冒险', rows: 5, cols: 6 }, hard: { label: '超级挑战', rows: 6, cols: 7 },
@@ -8,16 +8,18 @@ export const DIFFICULTIES: Record<Difficulty, { label: string; rows: number; col
 export const ABANDON_ENERGY_COST = 1;
 export type GameState = { tiles: Tile[]; rows: number; cols: number; position: number; energy: number; steps: number; visited: number[]; status: 'playing' | 'question' | 'won' | 'lost'; question: Question | null; challengeTarget: number | null; message: string; lastEffect: 'boost' | 'drain' | 'move' | 'correct'; monsters: number; seed: number; level: number; difficulty: Difficulty };
 export function seededRandom(seed: number) { let s = seed >>> 0; return () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; }; }
-export function makeQuestion(random = Math.random): Question {
-  const add = random() > .4;
-  const a = Math.floor(random() * 16) + 1;
-  const b = Math.floor(random() * (add ? 21 - a : a + 1));
+export function makeQuestion(random = Math.random, level = 1): Question {
+  const add = random() > .35;
+  const max = Math.min(20, 5 + Math.ceil(level / 2) * 3);
+  const a = Math.floor(random() * max) + 1;
+  const b = Math.floor(random() * (add ? Math.max(1, max + 1 - a) : a + 1));
   const answer = add ? a + b : a - b;
   const wrong = Array.from({ length: 21 }, (_, i) => i).filter(i => i !== answer);
   for (let i = wrong.length - 1; i > 0; i--) { const j = Math.floor(random() * (i + 1)); [wrong[i], wrong[j]] = [wrong[j], wrong[i]]; }
   const choices = [answer, ...wrong.slice(0, 3)];
   for (let i = choices.length - 1; i > 0; i--) { const j = Math.floor(random() * (i + 1)); [choices[i], choices[j]] = [choices[j], choices[i]]; }
-  return { a, b, operator: add ? '+' : '−', answer, choices };
+  const strategy = a === b ? 'double' : add && a < 10 && answer >= 10 ? 'make-ten' : Math.max(a, b) >= 10 ? 'split-number' : 'count-all';
+  return { a, b, operator: add ? '+' : '−', answer, choices, strategy, rejected: [] };
 }
 export function createGame(difficulty: Difficulty = 'easy', seed = Math.floor(Math.random() * 1e8), level = 1): GameState {
   const { rows, cols } = DIFFICULTIES[difficulty]; const random = seededRandom(seed);
@@ -46,7 +48,7 @@ export function move(state: GameState, target: number): GameState {
   if (tile.kind === 'monster' && firstVisit) {
     return {
       ...state, status: 'question', challengeTarget: target,
-      question: makeQuestion(seededRandom(state.seed + target * 137 + state.steps)),
+      question: makeQuestion(seededRandom(state.seed + target * 137 + state.steps), state.level),
       lastEffect: 'move', message: '小怪兽挡住了去路，答对题目就能通过！',
     };
   }
@@ -63,6 +65,9 @@ export function move(state: GameState, target: number): GameState {
 export function answerQuestion(state: GameState, answer: number): GameState {
   if (state.status !== 'question' || !state.question || state.challengeTarget === null) return state;
   const correct = answer === state.question.answer;
+  if (!correct && state.question.rejected.length < 1) {
+    return { ...state, question: { ...state.question, choices: state.question.choices.filter(choice => choice !== answer), rejected: [...state.question.rejected, answer] }, message: '这个答案先放一边，我们再看一看图形吧！' };
+  }
   return {
     ...state, status: correct ? 'playing' : 'lost', question: null, challengeTarget: null,
     position: correct ? state.challengeTarget : state.position,

@@ -27,11 +27,12 @@ describe('彩虹能量迷宫', () => {
     const s=createGame('easy',1);const lost=move({...s,energy:20},s.cols);
     expect(lost.energy).toBe(0);expect(lost.status).toBe('lost');expect(move(lost,0)).toBe(lost);
   });
-  it('blocks movement during a question and loses on an incorrect answer', () => {
+  it('blocks movement during a question and gives one gentle retry', () => {
     const s=move(move(createGame('easy',1),1),2);
     expect(s.status).toBe('question');expect(move(s,3)).toBe(s);
-    expect(answerQuestion(s,s.question!.answer+1).status).toBe('lost');
-    const passed=answerQuestion(s,s.question!.answer);
+    const retry=answerQuestion(s,s.question!.answer+1);
+    expect(retry.status).toBe('question'); expect(retry.question!.rejected).toHaveLength(1);
+    const passed=answerQuestion(retry,retry.question!.answer);
     expect(passed.status).toBe('playing');expect(passed.monsters).toBe(1);
     expect(move(move(passed,1),2).status).toBe('playing');
   });
