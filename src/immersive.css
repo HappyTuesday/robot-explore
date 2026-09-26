@@ -247,3 +247,35 @@ html:has(.game-shell), body:has(.game-shell) { height: 100%; overflow: hidden; o
   .game-shell .math-tip { margin:3px auto 6px; padding:4px 7px; font-size:9px; }
   .game-shell .retry-hint { margin:4px 0 0 !important; }
 }
+.bean-rows { display:flex; flex-direction:column; gap:3px; }
+.bean-row { display:flex; gap:4px; min-height:16px; }
+.math-group i.bean-removed { color:#d9d6ca; opacity:.5; }
+.math-group i.bean-extra { color:#8bb9a0; animation:bean-guide .9s ease-in-out infinite; animation-delay:calc(var(--i) * 80ms); }
+@keyframes bean-guide { 0%,100% { transform:scale(1); opacity:.78; } 50% { transform:scale(1.38); opacity:1; filter:drop-shadow(0 0 5px #e6b85e); } }
+@media (max-height:600px) { .bean-row { gap:2px; min-height:12px; } .bean-rows { gap:1px; } }
+.math-lines { display:flex; flex-direction:column; align-items:center; gap:3px; }
+.math-line { display:flex; justify-content:center; }
+.math-line-label { display:none; }
+.bean-rows { gap:4px; }
+.bean-row { gap:5px; }
+.bean-row + .bean-row { margin-left:12px; }
+.math-lines > .visual-operator { line-height:16px; font-size:18px; }
+@media (max-height:600px) { .math-lines { gap:1px; } .bean-rows { gap:2px; } .bean-row { gap:3px; } .bean-row + .bean-row { margin-left:8px; } .math-lines > .visual-operator { line-height:11px; font-size:14px; } }
+/* Larger, calmer math dialog for children's visual comfort. */
+.question-modal { width:min(680px, calc(100vw - 32px)); padding:32px 42px; }
+.question-modal h2 { font-size:26px; line-height:1.35; margin:14px 0 8px; }
+.question-modal > p { font-size:15px; line-height:1.6; }
+.math-lines { display:flex; flex-direction:column; align-items:center; gap:5px; margin:12px auto 8px; }
+.math-line { min-height:26px; justify-content:center; }
+.bean-rows { gap:6px; }
+.bean-row { gap:7px; }
+.bean-row + .bean-row { margin-left:18px; }
+.math-group i { font-size:22px; }
+.math-lines > .visual-operator { font-size:25px; line-height:22px; }
+.math-tip { font-size:14px; padding:10px 14px; margin:8px auto 14px; }
+.question-modal .equation { font-size:42px; margin:12px 0; }
+.question-modal .equation b { font-size:38px; }
+.question-modal .answer-grid button { height:64px; font-size:28px; }
+.question-modal .abandon-button { min-height:50px; font-size:15px; }
+@media (max-width:700px) { .question-modal { padding:24px 20px; } .question-modal h2 { font-size:22px; } .question-modal > p { font-size:14px; } }
+@media (max-height:600px) { .question-modal { padding:18px 24px; } .question-modal h2 { font-size:20px; margin:6px 0; } .question-modal > p { font-size:12px; } .math-lines { margin:4px auto; gap:2px; } .math-group i { font-size:15px; } .bean-rows { gap:3px; } .bean-row { gap:4px; } .bean-row + .bean-row { margin-left:10px; } .math-lines > .visual-operator { font-size:18px; line-height:15px; } .question-modal .equation { font-size:30px; margin:6px 0; } .question-modal .equation b { font-size:27px; } .question-modal .answer-grid button { height:50px; font-size:23px; } }
