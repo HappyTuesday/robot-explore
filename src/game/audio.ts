@@ -18,3 +18,17 @@ export function sound(type: 'move' | 'boost' | 'drain' | 'correct' | 'win' | 'lo
     }
   } catch { /* Gameplay still works when browser audio is unavailable. */ }
 }
+
+/** Optional English pronunciation; never blocks answering or ignores mute. */
+export function speakWord(word: string): boolean {
+  if (!enabled || !('speechSynthesis' in window)) return false;
+  try {
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(word);
+    utterance.lang = 'en-US'; utterance.rate = .8; utterance.pitch = 1.1;
+    const voice = window.speechSynthesis.getVoices().find(v => v.lang.startsWith('en'));
+    if (voice) utterance.voice = voice;
+    window.speechSynthesis.speak(utterance);
+    return true;
+  } catch { return false; }
+}

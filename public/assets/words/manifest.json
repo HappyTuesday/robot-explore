@@ -1,0 +1,144 @@
+{
+  "prompt_set": "docs/ocean-image-prompts.jsonl",
+  "transform": "Whole image resized to fit 384 x 384; WebP quality 86",
+  "images": [
+    {
+      "id": "cat",
+      "file": "cat.webp",
+      "requested_model": "gpt-image-2",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "generated_at": null,
+      "source": "AI-generated via user-configured OpenAI-compatible endpoint"
+    },
+    {
+      "id": "dog",
+      "file": "dog.webp",
+      "requested_model": "gpt-image-2",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "generated_at": null,
+      "source": "AI-generated via user-configured OpenAI-compatible endpoint"
+    },
+    {
+      "id": "rabbit",
+      "file": "rabbit.webp",
+      "requested_model": "gpt-image-2",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "generated_at": null,
+      "source": "AI-generated via user-configured OpenAI-compatible endpoint"
+    },
+    {
+      "id": "bear",
+      "file": "bear.webp",
+      "requested_model": "gpt-image-2",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "generated_at": null,
+      "source": "AI-generated via user-configured OpenAI-compatible endpoint"
+    },
+    {
+      "id": "panda",
+      "file": "panda.webp",
+      "requested_model": "gpt-image-2",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "generated_at": null,
+      "source": "AI-generated via user-configured OpenAI-compatible endpoint"
+    },
+    {
+      "id": "monkey",
+      "file": "monkey.webp",
+      "requested_model": "gpt-image-2",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "generated_at": null,
+      "source": "AI-generated via user-configured OpenAI-compatible endpoint"
+    },
+    {
+      "id": "pig",
+      "file": "pig.webp",
+      "requested_model": "gpt-image-2",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "generated_at": null,
+      "source": "AI-generated via user-configured OpenAI-compatible endpoint"
+    },
+    {
+      "id": "cow",
+      "file": "cow.webp",
+      "requested_model": "gpt-image-2",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "generated_at": null,
+      "source": "AI-generated via user-configured OpenAI-compatible endpoint"
+    },
+    {
+      "id": "elephant",
+      "file": "elephant.webp",
+      "requested_model": "gpt-image-2",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "generated_at": null,
+      "source": "AI-generated via user-configured OpenAI-compatible endpoint"
+    },
+    {
+      "id": "apple",
+      "file": "apple.webp",
+      "requested_model": "gpt-image-2",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "generated_at": null,
+      "source": "AI-generated via user-configured OpenAI-compatible endpoint"
+    }
+  ],
+  "pending": [
+    "lion",
+    "fish",
+    "turtle",
+    "banana",
+    "pear",
+    "strawberry",
+    "watermelon",
+    "pineapple",
+    "bread",
+    "cheese",
+    "egg",
+    "carrot",
+    "corn",
+    "cake",
+    "car",
+    "bus",
+    "train",
+    "bicycle",
+    "airplane",
+    "boat",
+    "ball",
+    "book",
+    "key",
+    "umbrella",
+    "clock",
+    "guitar"
+  ]
+}

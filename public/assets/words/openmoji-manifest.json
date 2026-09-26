@@ -1,0 +1,16 @@
+{
+  "source": "OpenMoji",
+  "source_url": "https://github.com/hfg-gmuend/openmoji",
+  "license": "CC BY-SA 4.0",
+  "grid": "3x3",
+  "word_count": 63,
+  "sheets": [
+    "sheet-01.webp",
+    "sheet-02.webp",
+    "sheet-03.webp",
+    "sheet-04.webp",
+    "sheet-05.webp",
+    "sheet-06.webp",
+    "sheet-07.webp"
+  ]
+}

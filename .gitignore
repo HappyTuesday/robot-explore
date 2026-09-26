@@ -7,3 +7,7 @@ test-results
 
 artifacts/
 *.tsbuildinfo
+
+# Local image generation scratch and high-resolution originals
+/tmp/imagegen/
+/output/imagegen/

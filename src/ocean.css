@@ -1,0 +1,103 @@
+/* Ocean world: scoped so the existing forest retains its own appearance. */
+.ocean-shell { --green: #247b86; --deep: #214f64; --muted: #6c8b92; background: #eff7f6; color: #264e60; }
+.ocean-shell .site-header { background: #fbfdfa; border-color: #d9e8e6; }
+.ocean-shell .game-heading h1 { color: #24576a; }
+.ocean-shell .game-heading h1 > span { color: #d6a95b; }
+.ocean-shell .play-panel { border-color: #cbdedd; box-shadow: 0 8px 28px #1a5d6510; }
+.ocean-shell .play-topbar { background: #f8fcfa; }
+.ocean-shell .level-chip { color: #37717c; }
+.ocean-shell .ocean-playfield { position: relative; isolation: isolate; overflow: hidden; background: linear-gradient(170deg, #cceee5 0%, #83c7cc 55%, #72b4be 100%); }
+.ocean-decor { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: -1; }
+.ocean-rays { position: absolute; inset: 0; background: repeating-conic-gradient(from 159deg at 50% -40%, #ffffff16 0deg 8deg, transparent 8deg 20deg); }
+.ocean-reef { position: absolute; bottom: 0; width: 100%; height: 29%; min-height: 85px; }
+.ocean-bubble { position: absolute; width: 12px; height: 12px; border: 1.5px solid #e1ffff75; border-radius: 50%; animation: ocean-rise 12s linear infinite; }
+.bubble-0 { left: 5%; bottom: 20%; }.bubble-1 { left: 94%; bottom: 40%; animation-delay: -5s; }.bubble-2 { left: 12%; bottom: 57%; width: 7px; height: 7px; animation-delay: -2s; }.bubble-3 { left: 88%; bottom: 5%; animation-delay: -7s; }.bubble-4 { left: 42%; bottom: 9%; width: 5px; height: 5px; animation-delay: -4s; }.bubble-5 { left: 72%; bottom: 77%; width: 8px; height: 8px; animation-delay: -9s; }
+@keyframes ocean-rise { from { transform: translateY(50px); opacity: 0; } 25% { opacity: 1; } to { transform: translateY(-160px); opacity: 0; } }
+.ocean-shell .board { z-index: 1; }
+.ocean-shell .board-cell { background: #f8edcb; border: 2px solid #fff9e5; box-shadow: 0 4px 0 #9eada3; }
+.ocean-shell .board-cell.cell-boost { background: #c6ece4; border-color: #effff4; box-shadow: 0 4px 0 #68a6a0; color: #287777; }
+.ocean-shell .board-cell.cell-drain { background: #eac4a6; border-color: #f5e3cd; box-shadow: 0 4px 0 #c08d73; color: #a26847; }
+.ocean-shell .board-cell.monster-waiting { background: #e4c4df; border-color: #fae8f3; box-shadow: 0 4px 0 #b693b5; }
+.ocean-shell .board-cell.cell-finish { background: #efd99b; border-color: #ffedb4; }
+.ocean-shell .board-cell.reachable { outline-color: #397c84; }
+.ocean-shell .start-label { color: #2f7280; }
+.ocean-shell .character-label { background: #f8fff5; color: #316c76; }
+.ocean-shell .game-message { background: #f1f8f5; color: #477481; }
+.ocean-shell .legend-boost { background: #9ddbd2; }.ocean-shell .legend-drain { background: #e8b99b; }.ocean-shell .legend-plain { background: #eddfa8; }
+.ocean-shell .companion-panel { background: #f7fbf7; border-color: #d8e7df; }
+.ocean-shell .companion-portrait { background: #daeee7; }
+.ocean-shell .companion-profile h2 { color: #356b72; }
+.ocean-shell .energy-section > div:first-child, .ocean-shell .mini-stats div > span { color: #527f87; }
+.ocean-shell .energy-track > span { background: linear-gradient(90deg, #74bfbb, #3a989f); }
+.ocean-shell .energy-track.danger > span { background: #d7826b; }
+.ocean-shell .direction-pad button { background: #ecf4ef; border-color: #d5e5dc; color: #477980; }
+.ocean-shell .little-tip { background: #eef3e4; }
+.diver-art { display: block; position: relative; width: 100%; height: 100%; }
+.diver-art > svg:first-child { position: absolute; inset: 0; width: 100%; height: 100%; }
+.diver-art > svg.dive-helmet { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.ocean-shell .cell-robot { width: 100%; height: 114%; }
+.ocean-shell .companion-portrait .diver-art { height: 112%; width: 112%; left: -6%; }
+.ocean-shell .companion-portrait .diver-art > svg { width: 100%; height: 100%; left: 0; }
+.ocean-shell .oxygen-icon { font: 800 clamp(12px, calc(var(--cell-size) * .26), 26px)/1.4 system-ui; width: 1.8em; height: 1.8em; display: grid; place-items: center; border: 2px solid #ffffffc9; border-radius: 50%; box-shadow: inset 3px 3px 4px #ffffffb5; }
+.ocean-shell .finish-icon svg { width: clamp(24px, calc(var(--cell-size) * .7), 80px); height: auto; }
+.ocean-shell .sad-robot .diver-art, .ocean-shell .pause-robot .diver-art { width: 110px; height: 120px; margin: auto; }
+/* Word cards stay readable in both landscape and portrait. */
+.ocean-shell .word-modal { width: min(560px, 100%); max-width: 560px; padding: 25px 30px 18px; background: #fcfdf8; border: 1px solid #d5e9e2; }
+.word-challenge-header { display: flex; align-items: center; justify-content: center; gap: 14px; text-align: left; }
+.word-challenge-header > svg { width: 65px; height: 65px; flex: none; }
+.word-challenge-header .challenge-tag { margin: 0; font-size: 9px; letter-spacing: 1.6px; background: transparent; padding: 0; color: #648e95; }
+.ocean-shell .word-modal h2 { font-size: 21px; margin: 6px 0; color: #345b6b; }
+.word-prompt { display: flex; justify-content: center; align-items: center; gap: 12px; padding: 12px 0 4px; }
+.word-prompt strong { font-size: clamp(32px, 6vw, 43px); letter-spacing: 1px; color: #245e76; }
+.word-prompt button { background: #e2f1ed; color: #387f8c; }
+.word-prompt button:disabled { opacity: .4; }
+.ocean-shell .word-modal .word-feedback { margin: 6px 0 17px; font-size: 12px; color: #6c8483; min-height: 20px; }
+.word-choices { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.word-choices button { position: relative; display: grid; place-items: center; height: 142px; border-radius: 18px; border: 2px solid #e4e9dd; background: #f7f6ed; box-shadow: 0 3px 0 #e7e7d9; overflow: hidden; }
+.word-choices img { width: 112px; height: 112px; object-fit: contain; border-radius: 12px; }
+.word-choices button:hover:not(:disabled) { border-color: #70b5b8; background: #edf6f0; transform: translateY(-2px); }
+.word-choices button.word-correct { border-color: #56a77f; background: #dff2de; box-shadow: 0 3px 0 #a8d2b2; }
+.word-choices button.word-rejected { opacity: .48; box-shadow: none; }
+.word-option-number { position: absolute; top: 10px; left: 12px; font-size: 10px; color: #9da995; }
+.word-check { position: absolute; right: 10px; bottom: 10px; color: #329365; }
+.word-try-again { position: absolute; bottom: 6px; font-size: 10px; background: #fffdf7; padding: 2px 6px; border-radius: 5px; }
+.word-credit { display: block; font-size: 9px; color: #94a49a; margin-top: 12px; }
+.word-load-error { min-height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 13px; background: #f3f3e9; border-radius: 16px; padding: 20px; }
+.ocean-word-review { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; max-height: 130px; overflow-y: auto; margin: 14px 0; }
+.ocean-word-review > span { display: flex; align-items: center; gap: 5px; padding: 5px 9px; border-radius: 9px; background: #edf4eb; font-size: 12px; color: #467878; }
+.ocean-word-review img { width: 30px; height: 30px; border-radius: 5px; object-fit: contain; }.ocean-word-review small { color: #83968a; font-size: 10px; }
+.ocean-achievements { margin: 24px auto; padding: 25px; border: 1px solid #d2e5e1; border-radius: 20px; background: #f0f8f5; }.ocean-achievements .eyebrow { justify-content: center; }.ocean-achievements h2 { font-size: 22px; }.ocean-achievements p { color: #6d8a83; font-size: 13px; }
+@media (max-width: 600px) { .ocean-shell .word-modal { padding: 20px; }.word-choices button { height: 128px; }.word-choices img { width: 100px; height: 100px; }.ocean-shell .word-modal h2 { font-size: 18px; } }
+@media (max-height: 600px) and (orientation: landscape) {
+  .ocean-shell .word-modal { width: min(660px, 100%); max-width: 660px; padding: 12px 22px; }
+  .word-challenge-header { gap: 9px; }.word-challenge-header > svg { width: 36px; height: 36px; }.word-challenge-header .challenge-tag { display: none; }
+  .ocean-shell .word-modal h2 { font-size: 17px; margin: 0; }.word-prompt { padding: 0; }.word-prompt strong { font-size: 28px; }.word-prompt button { width: 32px; height: 32px; }
+  .ocean-shell .word-modal .word-feedback { margin: 2px 0 8px; min-height: 16px; font-size: 10px; }
+  .word-choices { grid-template-columns: repeat(4, 1fr); gap: 9px; }.word-choices button { height: 102px; border-radius: 13px; }.word-choices img { width: 82px; height: 82px; }.word-option-number { top: 5px; left: 6px; font-size: 8px; }
+  .word-credit { display: none; }.word-load-error { min-height: 105px; padding: 8px; }.ocean-word-review { max-height: 63px; margin: 5px 0; }
+}
+@media (prefers-reduced-motion: reduce) { .ocean-bubble { animation: none; }.word-choices button { transition: none; } }
+
+.ocean-shell .board-cell.current { background: transparent; border: 0; outline: none; box-shadow: none; }
+.ocean-shell .board-cell.current:focus-visible { outline: 3px solid #2d8394; }
+
+.ocean-shell .result-modal .ocean-word-review { max-height: none; overflow: visible; }
+.ocean-shell .result-modal .ocean-word-review small { display: none; }
+@media (max-height: 600px) { .ocean-shell .result-modal .ocean-word-review { flex-wrap: nowrap; gap: 4px; }.ocean-shell .result-modal .ocean-word-review > span { padding: 4px 6px; font-size: 10px; }.ocean-shell .result-modal .ocean-word-review img { width: 22px; height: 22px; } }
+.ocean-shell svg.cell-monster { max-width: none; width: 75%; height: 79%; }
+.ocean-shell .finish-icon { width: 80%; }
+.ocean-shell .finish-icon svg { max-width: none; }
+.word-sprite { width: 112px; height: 112px; display: block; background-size: 300% 300%; background-repeat: no-repeat; border-radius: 12px; }
+.word-review-sprite { width: 30px; height: 30px; display: inline-block; flex: none; background-size: 300% 300%; background-repeat: no-repeat; border-radius: 5px; }
+@media (max-width: 600px) { .word-sprite { width: 100px; height: 100px; } }
+@media (max-height: 600px) and (orientation: landscape) { .word-sprite { width: 82px; height: 82px; } }
+
+.ocean-shell .ocean-help-modal { padding: 24px 30px; }
+.ocean-shell .ocean-help-modal .help-list { margin: 20px 0; }
+.ocean-shell .ocean-help-modal .help-list p { margin-bottom: 13px; }
+@media (max-height: 600px) and (orientation: landscape) {
+  .ocean-shell .ocean-help-modal { padding: 14px 25px; max-width: 650px; }
+  .ocean-shell .ocean-help-modal .modal-symbol { display: none; }
+  .ocean-shell .ocean-help-modal .help-list { margin: 12px 0; }
+  .ocean-shell .ocean-help-modal .help-list p { margin-bottom: 0; }
+}
