@@ -628,5 +628,1605 @@
     "sheet": "sheet-07.webp",
     "col": 2,
     "row": 2
+  },
+  {
+    "id": "chicken",
+    "english": "chicken",
+    "chinese": "鸡",
+    "category": "animal",
+    "codepoint": "1F414",
+    "sheet": "sheet-08.webp",
+    "col": 0,
+    "row": 0
+  },
+  {
+    "id": "boar",
+    "english": "boar",
+    "chinese": "野猪",
+    "category": "animal",
+    "codepoint": "1F417",
+    "sheet": "sheet-08.webp",
+    "col": 1,
+    "row": 0
+  },
+  {
+    "id": "frog",
+    "english": "frog",
+    "chinese": "青蛙",
+    "category": "animal",
+    "codepoint": "1F438",
+    "sheet": "sheet-08.webp",
+    "col": 2,
+    "row": 0
+  },
+  {
+    "id": "horse",
+    "english": "horse",
+    "chinese": "马",
+    "category": "animal",
+    "codepoint": "1F40E",
+    "sheet": "sheet-08.webp",
+    "col": 0,
+    "row": 1
+  },
+  {
+    "id": "mouse",
+    "english": "mouse",
+    "chinese": "老鼠",
+    "category": "animal",
+    "codepoint": "1F401",
+    "sheet": "sheet-08.webp",
+    "col": 1,
+    "row": 1
+  },
+  {
+    "id": "fox",
+    "english": "fox",
+    "chinese": "狐狸",
+    "category": "animal",
+    "codepoint": "1F98A",
+    "sheet": "sheet-08.webp",
+    "col": 2,
+    "row": 1
+  },
+  {
+    "id": "tiger",
+    "english": "tiger",
+    "chinese": "老虎",
+    "category": "animal",
+    "codepoint": "1F405",
+    "sheet": "sheet-08.webp",
+    "col": 0,
+    "row": 2
+  },
+  {
+    "id": "leopard",
+    "english": "leopard",
+    "chinese": "豹子",
+    "category": "animal",
+    "codepoint": "1F406",
+    "sheet": "sheet-08.webp",
+    "col": 1,
+    "row": 2
+  },
+  {
+    "id": "goat",
+    "english": "goat",
+    "chinese": "山羊",
+    "category": "animal",
+    "codepoint": "1F410",
+    "sheet": "sheet-08.webp",
+    "col": 2,
+    "row": 2
+  },
+  {
+    "id": "deer",
+    "english": "deer",
+    "chinese": "鹿",
+    "category": "animal",
+    "codepoint": "1F98C",
+    "sheet": "sheet-09.webp",
+    "col": 0,
+    "row": 0
+  },
+  {
+    "id": "zebra",
+    "english": "zebra",
+    "chinese": "斑马",
+    "category": "animal",
+    "codepoint": "1F993",
+    "sheet": "sheet-09.webp",
+    "col": 1,
+    "row": 0
+  },
+  {
+    "id": "snail",
+    "english": "snail",
+    "chinese": "蜗牛",
+    "category": "animal",
+    "codepoint": "1F40C",
+    "sheet": "sheet-09.webp",
+    "col": 2,
+    "row": 0
+  },
+  {
+    "id": "butterfly",
+    "english": "butterfly",
+    "chinese": "蝴蝶",
+    "category": "animal",
+    "codepoint": "1F98B",
+    "sheet": "sheet-09.webp",
+    "col": 0,
+    "row": 1
+  },
+  {
+    "id": "octopus",
+    "english": "octopus",
+    "chinese": "章鱼",
+    "category": "animal",
+    "codepoint": "1F419",
+    "sheet": "sheet-09.webp",
+    "col": 1,
+    "row": 1
+  },
+  {
+    "id": "dolphin",
+    "english": "dolphin",
+    "chinese": "海豚",
+    "category": "animal",
+    "codepoint": "1F42C",
+    "sheet": "sheet-09.webp",
+    "col": 2,
+    "row": 1
+  },
+  {
+    "id": "bee",
+    "english": "bee",
+    "chinese": "蜜蜂",
+    "category": "animal",
+    "codepoint": "1F41D",
+    "sheet": "sheet-09.webp",
+    "col": 0,
+    "row": 2
+  },
+  {
+    "id": "ant",
+    "english": "ant",
+    "chinese": "蚂蚁",
+    "category": "animal",
+    "codepoint": "1F41C",
+    "sheet": "sheet-09.webp",
+    "col": 1,
+    "row": 2
+  },
+  {
+    "id": "ladybug",
+    "english": "ladybug",
+    "chinese": "瓢虫",
+    "category": "animal",
+    "codepoint": "1F41E",
+    "sheet": "sheet-09.webp",
+    "col": 2,
+    "row": 2
+  },
+  {
+    "id": "whale",
+    "english": "whale",
+    "chinese": "鲸鱼",
+    "category": "animal",
+    "codepoint": "1F40B",
+    "sheet": "sheet-10.webp",
+    "col": 0,
+    "row": 0
+  },
+  {
+    "id": "koala",
+    "english": "koala",
+    "chinese": "考拉",
+    "category": "animal",
+    "codepoint": "1F428",
+    "sheet": "sheet-10.webp",
+    "col": 1,
+    "row": 0
+  },
+  {
+    "id": "giraffe",
+    "english": "giraffe",
+    "chinese": "长颈鹿",
+    "category": "animal",
+    "codepoint": "1F992",
+    "sheet": "sheet-10.webp",
+    "col": 2,
+    "row": 0
+  },
+  {
+    "id": "hamster",
+    "english": "hamster",
+    "chinese": "仓鼠",
+    "category": "animal",
+    "codepoint": "1F439",
+    "sheet": "sheet-10.webp",
+    "col": 0,
+    "row": 1
+  },
+  {
+    "id": "wolf",
+    "english": "wolf",
+    "chinese": "狼",
+    "category": "animal",
+    "codepoint": "1F43A",
+    "sheet": "sheet-10.webp",
+    "col": 1,
+    "row": 1
+  },
+  {
+    "id": "sheep",
+    "english": "sheep",
+    "chinese": "绵羊",
+    "category": "animal",
+    "codepoint": "1F411",
+    "sheet": "sheet-10.webp",
+    "col": 2,
+    "row": 1
+  },
+  {
+    "id": "camel",
+    "english": "camel",
+    "chinese": "骆驼",
+    "category": "animal",
+    "codepoint": "1F42B",
+    "sheet": "sheet-10.webp",
+    "col": 0,
+    "row": 2
+  },
+  {
+    "id": "squirrel",
+    "english": "squirrel",
+    "chinese": "松鼠",
+    "category": "animal",
+    "codepoint": "1F43F",
+    "sheet": "sheet-10.webp",
+    "col": 1,
+    "row": 2
+  },
+  {
+    "id": "spider",
+    "english": "spider",
+    "chinese": "蜘蛛",
+    "category": "animal",
+    "codepoint": "1F577",
+    "sheet": "sheet-10.webp",
+    "col": 2,
+    "row": 2
+  },
+  {
+    "id": "parrot",
+    "english": "parrot",
+    "chinese": "鹦鹉",
+    "category": "animal",
+    "codepoint": "1F99C",
+    "sheet": "sheet-11.webp",
+    "col": 0,
+    "row": 0
+  },
+  {
+    "id": "shrimp",
+    "english": "shrimp",
+    "chinese": "虾",
+    "category": "animal",
+    "codepoint": "1F990",
+    "sheet": "sheet-11.webp",
+    "col": 1,
+    "row": 0
+  },
+  {
+    "id": "squid",
+    "english": "squid",
+    "chinese": "鱿鱼",
+    "category": "animal",
+    "codepoint": "1F991",
+    "sheet": "sheet-11.webp",
+    "col": 2,
+    "row": 0
+  },
+  {
+    "id": "lobster",
+    "english": "lobster",
+    "chinese": "龙虾",
+    "category": "animal",
+    "codepoint": "1F99E",
+    "sheet": "sheet-11.webp",
+    "col": 0,
+    "row": 1
+  },
+  {
+    "id": "crab",
+    "english": "crab",
+    "chinese": "螃蟹",
+    "category": "animal",
+    "codepoint": "1F980",
+    "sheet": "sheet-11.webp",
+    "col": 1,
+    "row": 1
+  },
+  {
+    "id": "turkey",
+    "english": "turkey",
+    "chinese": "火鸡",
+    "category": "animal",
+    "codepoint": "1F983",
+    "sheet": "sheet-11.webp",
+    "col": 2,
+    "row": 1
+  },
+  {
+    "id": "dove",
+    "english": "dove",
+    "chinese": "鸽子",
+    "category": "animal",
+    "codepoint": "1F54A",
+    "sheet": "sheet-11.webp",
+    "col": 0,
+    "row": 2
+  },
+  {
+    "id": "penguin",
+    "english": "penguin",
+    "chinese": "企鹅",
+    "category": "animal",
+    "codepoint": "1F427",
+    "sheet": "sheet-11.webp",
+    "col": 1,
+    "row": 2
+  },
+  {
+    "id": "duck",
+    "english": "duck",
+    "chinese": "鸭子",
+    "category": "animal",
+    "codepoint": "1F986",
+    "sheet": "sheet-11.webp",
+    "col": 2,
+    "row": 2
+  },
+  {
+    "id": "unicorn",
+    "english": "unicorn",
+    "chinese": "独角兽",
+    "category": "animal",
+    "codepoint": "1F984",
+    "sheet": "sheet-12.webp",
+    "col": 0,
+    "row": 0
+  },
+  {
+    "id": "dragon",
+    "english": "dragon",
+    "chinese": "龙",
+    "category": "animal",
+    "codepoint": "1F409",
+    "sheet": "sheet-12.webp",
+    "col": 1,
+    "row": 0
+  },
+  {
+    "id": "peacock",
+    "english": "peacock",
+    "chinese": "孔雀",
+    "category": "animal",
+    "codepoint": "1F99A",
+    "sheet": "sheet-12.webp",
+    "col": 2,
+    "row": 0
+  },
+  {
+    "id": "eagle",
+    "english": "eagle",
+    "chinese": "老鹰",
+    "category": "animal",
+    "codepoint": "1F985",
+    "sheet": "sheet-12.webp",
+    "col": 0,
+    "row": 1
+  },
+  {
+    "id": "owl",
+    "english": "owl",
+    "chinese": "猫头鹰",
+    "category": "animal",
+    "codepoint": "1F989",
+    "sheet": "sheet-12.webp",
+    "col": 1,
+    "row": 1
+  },
+  {
+    "id": "coconut",
+    "english": "coconut",
+    "chinese": "椰子",
+    "category": "fruit",
+    "codepoint": "1F965",
+    "sheet": "sheet-12.webp",
+    "col": 2,
+    "row": 1
+  },
+  {
+    "id": "paw",
+    "english": "paw",
+    "chinese": "爪印",
+    "category": "animal",
+    "codepoint": "1F43E",
+    "sheet": "sheet-12.webp",
+    "col": 0,
+    "row": 2
+  },
+  {
+    "id": "mango",
+    "english": "mango",
+    "chinese": "芒果",
+    "category": "fruit",
+    "codepoint": "1F96D",
+    "sheet": "sheet-12.webp",
+    "col": 1,
+    "row": 2
+  },
+  {
+    "id": "kiwi",
+    "english": "kiwi",
+    "chinese": "猕猴桃",
+    "category": "fruit",
+    "codepoint": "1F95D",
+    "sheet": "sheet-12.webp",
+    "col": 2,
+    "row": 2
+  },
+  {
+    "id": "melon",
+    "english": "melon",
+    "chinese": "甜瓜",
+    "category": "fruit",
+    "codepoint": "1F348",
+    "sheet": "sheet-13.webp",
+    "col": 0,
+    "row": 0
+  },
+  {
+    "id": "blueberry",
+    "english": "blueberry",
+    "chinese": "蓝莓",
+    "category": "fruit",
+    "codepoint": "1FAD0",
+    "sheet": "sheet-13.webp",
+    "col": 1,
+    "row": 0
+  },
+  {
+    "id": "mushroom",
+    "english": "mushroom",
+    "chinese": "蘑菇",
+    "category": "food",
+    "codepoint": "1F344",
+    "sheet": "sheet-13.webp",
+    "col": 2,
+    "row": 0
+  },
+  {
+    "id": "potato",
+    "english": "potato",
+    "chinese": "土豆",
+    "category": "food",
+    "codepoint": "1F954",
+    "sheet": "sheet-13.webp",
+    "col": 0,
+    "row": 1
+  },
+  {
+    "id": "peanut",
+    "english": "peanut",
+    "chinese": "花生",
+    "category": "food",
+    "codepoint": "1F95C",
+    "sheet": "sheet-13.webp",
+    "col": 1,
+    "row": 1
+  },
+  {
+    "id": "onion",
+    "english": "onion",
+    "chinese": "洋葱",
+    "category": "food",
+    "codepoint": "1F9C5",
+    "sheet": "sheet-13.webp",
+    "col": 2,
+    "row": 1
+  },
+  {
+    "id": "rice",
+    "english": "rice",
+    "chinese": "米饭",
+    "category": "food",
+    "codepoint": "1F35A",
+    "sheet": "sheet-13.webp",
+    "col": 0,
+    "row": 2
+  },
+  {
+    "id": "sushi",
+    "english": "sushi",
+    "chinese": "寿司",
+    "category": "food",
+    "codepoint": "1F363",
+    "sheet": "sheet-13.webp",
+    "col": 1,
+    "row": 2
+  },
+  {
+    "id": "ramen",
+    "english": "ramen",
+    "chinese": "拉面",
+    "category": "food",
+    "codepoint": "1F35C",
+    "sheet": "sheet-13.webp",
+    "col": 2,
+    "row": 2
+  },
+  {
+    "id": "avocado",
+    "english": "avocado",
+    "chinese": "牛油果",
+    "category": "fruit",
+    "codepoint": "1F951",
+    "sheet": "sheet-14.webp",
+    "col": 0,
+    "row": 0
+  },
+  {
+    "id": "dumpling",
+    "english": "dumpling",
+    "chinese": "饺子",
+    "category": "food",
+    "codepoint": "1F95F",
+    "sheet": "sheet-14.webp",
+    "col": 1,
+    "row": 0
+  },
+  {
+    "id": "noodles",
+    "english": "noodles",
+    "chinese": "面条",
+    "category": "food",
+    "codepoint": "1F35C",
+    "sheet": "sheet-14.webp",
+    "col": 2,
+    "row": 0
+  },
+  {
+    "id": "candy",
+    "english": "candy",
+    "chinese": "糖果",
+    "category": "food",
+    "codepoint": "1F36C",
+    "sheet": "sheet-14.webp",
+    "col": 0,
+    "row": 1
+  },
+  {
+    "id": "chocolate",
+    "english": "chocolate",
+    "chinese": "巧克力",
+    "category": "food",
+    "codepoint": "1F36B",
+    "sheet": "sheet-14.webp",
+    "col": 1,
+    "row": 1
+  },
+  {
+    "id": "pancakes",
+    "english": "pancakes",
+    "chinese": "煎饼",
+    "category": "food",
+    "codepoint": "1F95E",
+    "sheet": "sheet-14.webp",
+    "col": 2,
+    "row": 1
+  },
+  {
+    "id": "cupcake",
+    "english": "cupcake",
+    "chinese": "纸杯蛋糕",
+    "category": "food",
+    "codepoint": "1F9C1",
+    "sheet": "sheet-14.webp",
+    "col": 0,
+    "row": 2
+  },
+  {
+    "id": "popcorn",
+    "english": "popcorn",
+    "chinese": "爆米花",
+    "category": "food",
+    "codepoint": "1F37F",
+    "sheet": "sheet-14.webp",
+    "col": 1,
+    "row": 2
+  },
+  {
+    "id": "donut",
+    "english": "donut",
+    "chinese": "甜甜圈",
+    "category": "food",
+    "codepoint": "1F369",
+    "sheet": "sheet-14.webp",
+    "col": 2,
+    "row": 2
+  },
+  {
+    "id": "garlic",
+    "english": "garlic",
+    "chinese": "大蒜",
+    "category": "food",
+    "codepoint": "1F9C4",
+    "sheet": "sheet-15.webp",
+    "col": 0,
+    "row": 0
+  },
+  {
+    "id": "fries",
+    "english": "fries",
+    "chinese": "薯条",
+    "category": "food",
+    "codepoint": "1F35F",
+    "sheet": "sheet-15.webp",
+    "col": 1,
+    "row": 0
+  },
+  {
+    "id": "honey",
+    "english": "honey",
+    "chinese": "蜂蜜",
+    "category": "food",
+    "codepoint": "1F36F",
+    "sheet": "sheet-15.webp",
+    "col": 2,
+    "row": 0
+  },
+  {
+    "id": "broccoli",
+    "english": "broccoli",
+    "chinese": "西兰花",
+    "category": "food",
+    "codepoint": "1F966",
+    "sheet": "sheet-15.webp",
+    "col": 0,
+    "row": 1
+  },
+  {
+    "id": "hotdog",
+    "english": "hotdog",
+    "chinese": "热狗",
+    "category": "food",
+    "codepoint": "1F32D",
+    "sheet": "sheet-15.webp",
+    "col": 1,
+    "row": 1
+  },
+  {
+    "id": "cucumber",
+    "english": "cucumber",
+    "chinese": "黄瓜",
+    "category": "food",
+    "codepoint": "1F952",
+    "sheet": "sheet-15.webp",
+    "col": 2,
+    "row": 1
+  },
+  {
+    "id": "taco",
+    "english": "taco",
+    "chinese": "玉米卷",
+    "category": "food",
+    "codepoint": "1F32E",
+    "sheet": "sheet-15.webp",
+    "col": 0,
+    "row": 2
+  },
+  {
+    "id": "steak",
+    "english": "steak",
+    "chinese": "牛排",
+    "category": "food",
+    "codepoint": "1F969",
+    "sheet": "sheet-15.webp",
+    "col": 1,
+    "row": 2
+  },
+  {
+    "id": "chicken_food",
+    "english": "chicken_food",
+    "chinese": "鸡腿",
+    "category": "food",
+    "codepoint": "1F357",
+    "sheet": "sheet-15.webp",
+    "col": 2,
+    "row": 2
+  },
+  {
+    "id": "water",
+    "english": "water",
+    "chinese": "水",
+    "category": "food",
+    "codepoint": "1F4A7",
+    "sheet": "sheet-16.webp",
+    "col": 0,
+    "row": 0
+  },
+  {
+    "id": "applejuice",
+    "english": "applejuice",
+    "chinese": "苹果汁",
+    "category": "food",
+    "codepoint": "1F9C3",
+    "sheet": "sheet-16.webp",
+    "col": 1,
+    "row": 0
+  },
+  {
+    "id": "wine",
+    "english": "wine",
+    "chinese": "葡萄酒",
+    "category": "food",
+    "codepoint": "1F377",
+    "sheet": "sheet-16.webp",
+    "col": 2,
+    "row": 0
+  },
+  {
+    "id": "tea",
+    "english": "tea",
+    "chinese": "茶",
+    "category": "food",
+    "codepoint": "1F375",
+    "sheet": "sheet-16.webp",
+    "col": 0,
+    "row": 1
+  },
+  {
+    "id": "beer",
+    "english": "beer",
+    "chinese": "啤酒",
+    "category": "food",
+    "codepoint": "1F37A",
+    "sheet": "sheet-16.webp",
+    "col": 1,
+    "row": 1
+  },
+  {
+    "id": "fork",
+    "english": "fork",
+    "chinese": "叉子",
+    "category": "object",
+    "codepoint": "1F374",
+    "sheet": "sheet-16.webp",
+    "col": 2,
+    "row": 1
+  },
+  {
+    "id": "spoon",
+    "english": "spoon",
+    "chinese": "勺子",
+    "category": "object",
+    "codepoint": "1F944",
+    "sheet": "sheet-16.webp",
+    "col": 0,
+    "row": 2
+  },
+  {
+    "id": "plate",
+    "english": "plate",
+    "chinese": "盘子",
+    "category": "object",
+    "codepoint": "1F37D",
+    "sheet": "sheet-16.webp",
+    "col": 1,
+    "row": 2
+  },
+  {
+    "id": "knife",
+    "english": "knife",
+    "chinese": "刀",
+    "category": "object",
+    "codepoint": "1F52A",
+    "sheet": "sheet-16.webp",
+    "col": 2,
+    "row": 2
+  },
+  {
+    "id": "bottle",
+    "english": "bottle",
+    "chinese": "瓶子",
+    "category": "object",
+    "codepoint": "1F37C",
+    "sheet": "sheet-17.webp",
+    "col": 0,
+    "row": 0
+  },
+  {
+    "id": "cup",
+    "english": "cup",
+    "chinese": "杯子",
+    "category": "object",
+    "codepoint": "2615",
+    "sheet": "sheet-17.webp",
+    "col": 1,
+    "row": 0
+  },
+  {
+    "id": "bulb",
+    "english": "bulb",
+    "chinese": "灯泡",
+    "category": "object",
+    "codepoint": "1F4A1",
+    "sheet": "sheet-17.webp",
+    "col": 2,
+    "row": 0
+  },
+  {
+    "id": "magnet",
+    "english": "magnet",
+    "chinese": "磁铁",
+    "category": "object",
+    "codepoint": "1F9F2",
+    "sheet": "sheet-17.webp",
+    "col": 0,
+    "row": 1
+  },
+  {
+    "id": "candle",
+    "english": "candle",
+    "chinese": "蜡烛",
+    "category": "object",
+    "codepoint": "1F56F",
+    "sheet": "sheet-17.webp",
+    "col": 1,
+    "row": 1
+  },
+  {
+    "id": "bacon",
+    "english": "bacon",
+    "chinese": "培根",
+    "category": "food",
+    "codepoint": "1F953",
+    "sheet": "sheet-17.webp",
+    "col": 2,
+    "row": 1
+  },
+  {
+    "id": "lock",
+    "english": "lock",
+    "chinese": "锁",
+    "category": "object",
+    "codepoint": "1F512",
+    "sheet": "sheet-17.webp",
+    "col": 0,
+    "row": 2
+  },
+  {
+    "id": "flashlight",
+    "english": "flashlight",
+    "chinese": "手电筒",
+    "category": "object",
+    "codepoint": "1F526",
+    "sheet": "sheet-17.webp",
+    "col": 1,
+    "row": 2
+  },
+  {
+    "id": "coffee",
+    "english": "coffee",
+    "chinese": "咖啡",
+    "category": "food",
+    "codepoint": "2615",
+    "sheet": "sheet-17.webp",
+    "col": 2,
+    "row": 2
+  },
+  {
+    "id": "ruler",
+    "english": "ruler",
+    "chinese": "尺子",
+    "category": "object",
+    "codepoint": "1F4CF",
+    "sheet": "sheet-18.webp",
+    "col": 0,
+    "row": 0
+  },
+  {
+    "id": "paintbrush",
+    "english": "paintbrush",
+    "chinese": "画笔",
+    "category": "object",
+    "codepoint": "1F58C",
+    "sheet": "sheet-18.webp",
+    "col": 1,
+    "row": 0
+  },
+  {
+    "id": "calendar",
+    "english": "calendar",
+    "chinese": "日历",
+    "category": "object",
+    "codepoint": "1F4C5",
+    "sheet": "sheet-18.webp",
+    "col": 2,
+    "row": 0
+  },
+  {
+    "id": "folder",
+    "english": "folder",
+    "chinese": "文件夹",
+    "category": "object",
+    "codepoint": "1F4C1",
+    "sheet": "sheet-18.webp",
+    "col": 0,
+    "row": 1
+  },
+  {
+    "id": "paper",
+    "english": "paper",
+    "chinese": "文件",
+    "category": "object",
+    "codepoint": "1F4C4",
+    "sheet": "sheet-18.webp",
+    "col": 1,
+    "row": 1
+  },
+  {
+    "id": "crayon",
+    "english": "crayon",
+    "chinese": "蜡笔",
+    "category": "object",
+    "codepoint": "1F58D",
+    "sheet": "sheet-18.webp",
+    "col": 2,
+    "row": 1
+  },
+  {
+    "id": "email",
+    "english": "email",
+    "chinese": "邮件",
+    "category": "object",
+    "codepoint": "1F4E7",
+    "sheet": "sheet-18.webp",
+    "col": 0,
+    "row": 2
+  },
+  {
+    "id": "laptop",
+    "english": "laptop",
+    "chinese": "笔记本电脑",
+    "category": "object",
+    "codepoint": "1F4BB",
+    "sheet": "sheet-18.webp",
+    "col": 1,
+    "row": 2
+  },
+  {
+    "id": "keyboard",
+    "english": "keyboard",
+    "chinese": "键盘",
+    "category": "object",
+    "codepoint": "2328",
+    "sheet": "sheet-18.webp",
+    "col": 2,
+    "row": 2
+  },
+  {
+    "id": "television",
+    "english": "television",
+    "chinese": "电视",
+    "category": "object",
+    "codepoint": "1F4FA",
+    "sheet": "sheet-19.webp",
+    "col": 0,
+    "row": 0
+  },
+  {
+    "id": "headphones",
+    "english": "headphones",
+    "chinese": "耳机",
+    "category": "object",
+    "codepoint": "1F3A7",
+    "sheet": "sheet-19.webp",
+    "col": 1,
+    "row": 0
+  },
+  {
+    "id": "mouse_device",
+    "english": "mouse_device",
+    "chinese": "鼠标",
+    "category": "object",
+    "codepoint": "1F5B1",
+    "sheet": "sheet-19.webp",
+    "col": 2,
+    "row": 0
+  },
+  {
+    "id": "microphone",
+    "english": "microphone",
+    "chinese": "麦克风",
+    "category": "object",
+    "codepoint": "1F399",
+    "sheet": "sheet-19.webp",
+    "col": 0,
+    "row": 1
+  },
+  {
+    "id": "medal",
+    "english": "medal",
+    "chinese": "奖牌",
+    "category": "object",
+    "codepoint": "1F3C5",
+    "sheet": "sheet-19.webp",
+    "col": 1,
+    "row": 1
+  },
+  {
+    "id": "radio",
+    "english": "radio",
+    "chinese": "收音机",
+    "category": "object",
+    "codepoint": "1F4FB",
+    "sheet": "sheet-19.webp",
+    "col": 2,
+    "row": 1
+  },
+  {
+    "id": "crown",
+    "english": "crown",
+    "chinese": "王冠",
+    "category": "object",
+    "codepoint": "1F451",
+    "sheet": "sheet-19.webp",
+    "col": 0,
+    "row": 2
+  },
+  {
+    "id": "flag",
+    "english": "flag",
+    "chinese": "旗帜",
+    "category": "object",
+    "codepoint": "1F6A9",
+    "sheet": "sheet-19.webp",
+    "col": 1,
+    "row": 2
+  },
+  {
+    "id": "trophy",
+    "english": "trophy",
+    "chinese": "奖杯",
+    "category": "object",
+    "codepoint": "1F3C6",
+    "sheet": "sheet-19.webp",
+    "col": 2,
+    "row": 2
+  },
+  {
+    "id": "globe",
+    "english": "globe",
+    "chinese": "地球",
+    "category": "object",
+    "codepoint": "1F30D",
+    "sheet": "sheet-20.webp",
+    "col": 0,
+    "row": 0
+  },
+  {
+    "id": "map",
+    "english": "map",
+    "chinese": "地图",
+    "category": "object",
+    "codepoint": "1F5FA",
+    "sheet": "sheet-20.webp",
+    "col": 1,
+    "row": 0
+  },
+  {
+    "id": "backpack",
+    "english": "backpack",
+    "chinese": "背包",
+    "category": "object",
+    "codepoint": "1F392",
+    "sheet": "sheet-20.webp",
+    "col": 2,
+    "row": 0
+  },
+  {
+    "id": "keycap",
+    "english": "keycap",
+    "chinese": "按键",
+    "category": "object",
+    "codepoint": "1F51F",
+    "sheet": "sheet-20.webp",
+    "col": 0,
+    "row": 1
+  },
+  {
+    "id": "suitcase",
+    "english": "suitcase",
+    "chinese": "行李箱",
+    "category": "object",
+    "codepoint": "1F9F3",
+    "sheet": "sheet-20.webp",
+    "col": 1,
+    "row": 1
+  },
+  {
+    "id": "dice",
+    "english": "dice",
+    "chinese": "骰子",
+    "category": "object",
+    "codepoint": "1F3B2",
+    "sheet": "sheet-20.webp",
+    "col": 2,
+    "row": 1
+  },
+  {
+    "id": "puzzle",
+    "english": "puzzle",
+    "chinese": "拼图",
+    "category": "object",
+    "codepoint": "1F9E9",
+    "sheet": "sheet-20.webp",
+    "col": 0,
+    "row": 2
+  },
+  {
+    "id": "kite",
+    "english": "kite",
+    "chinese": "风筝",
+    "category": "object",
+    "codepoint": "1FA81",
+    "sheet": "sheet-20.webp",
+    "col": 1,
+    "row": 2
+  },
+  {
+    "id": "paint_palette",
+    "english": "paint_palette",
+    "chinese": "调色板",
+    "category": "object",
+    "codepoint": "1F3A8",
+    "sheet": "sheet-20.webp",
+    "col": 2,
+    "row": 2
+  },
+  {
+    "id": "drum",
+    "english": "drum",
+    "chinese": "鼓",
+    "category": "object",
+    "codepoint": "1F941",
+    "sheet": "sheet-21.webp",
+    "col": 0,
+    "row": 0
+  },
+  {
+    "id": "trumpet",
+    "english": "trumpet",
+    "chinese": "小号",
+    "category": "object",
+    "codepoint": "1F3BA",
+    "sheet": "sheet-21.webp",
+    "col": 1,
+    "row": 0
+  },
+  {
+    "id": "violin",
+    "english": "violin",
+    "chinese": "小提琴",
+    "category": "object",
+    "codepoint": "1F3BB",
+    "sheet": "sheet-21.webp",
+    "col": 2,
+    "row": 0
+  },
+  {
+    "id": "ribbon",
+    "english": "ribbon",
+    "chinese": "丝带",
+    "category": "object",
+    "codepoint": "1F380",
+    "sheet": "sheet-21.webp",
+    "col": 0,
+    "row": 1
+  },
+  {
+    "id": "motorcycle",
+    "english": "motorcycle",
+    "chinese": "摩托车",
+    "category": "vehicle",
+    "codepoint": "1F3CD",
+    "sheet": "sheet-21.webp",
+    "col": 1,
+    "row": 1
+  },
+  {
+    "id": "helicopter",
+    "english": "helicopter",
+    "chinese": "直升机",
+    "category": "vehicle",
+    "codepoint": "1F681",
+    "sheet": "sheet-21.webp",
+    "col": 2,
+    "row": 1
+  },
+  {
+    "id": "balloon",
+    "english": "balloon",
+    "chinese": "气球",
+    "category": "object",
+    "codepoint": "1F388",
+    "sheet": "sheet-21.webp",
+    "col": 0,
+    "row": 2
+  },
+  {
+    "id": "rocket",
+    "english": "rocket",
+    "chinese": "火箭",
+    "category": "vehicle",
+    "codepoint": "1F680",
+    "sheet": "sheet-21.webp",
+    "col": 1,
+    "row": 2
+  },
+  {
+    "id": "scooter",
+    "english": "scooter",
+    "chinese": "滑板车",
+    "category": "vehicle",
+    "codepoint": "1F6F4",
+    "sheet": "sheet-21.webp",
+    "col": 2,
+    "row": 2
+  },
+  {
+    "id": "taxi",
+    "english": "taxi",
+    "chinese": "出租车",
+    "category": "vehicle",
+    "codepoint": "1F695",
+    "sheet": "sheet-22.webp",
+    "col": 0,
+    "row": 0
+  },
+  {
+    "id": "policecar",
+    "english": "policecar",
+    "chinese": "警车",
+    "category": "vehicle",
+    "codepoint": "1F693",
+    "sheet": "sheet-22.webp",
+    "col": 1,
+    "row": 0
+  },
+  {
+    "id": "tractor",
+    "english": "tractor",
+    "chinese": "拖拉机",
+    "category": "vehicle",
+    "codepoint": "1F69C",
+    "sheet": "sheet-22.webp",
+    "col": 2,
+    "row": 0
+  },
+  {
+    "id": "firetruck",
+    "english": "firetruck",
+    "chinese": "消防车",
+    "category": "vehicle",
+    "codepoint": "1F692",
+    "sheet": "sheet-22.webp",
+    "col": 0,
+    "row": 1
+  },
+  {
+    "id": "castle",
+    "english": "castle",
+    "chinese": "城堡",
+    "category": "place",
+    "codepoint": "1F3F0",
+    "sheet": "sheet-22.webp",
+    "col": 1,
+    "row": 1
+  },
+  {
+    "id": "ambulance",
+    "english": "ambulance",
+    "chinese": "救护车",
+    "category": "vehicle",
+    "codepoint": "1F691",
+    "sheet": "sheet-22.webp",
+    "col": 2,
+    "row": 1
+  },
+  {
+    "id": "door",
+    "english": "door",
+    "chinese": "门",
+    "category": "place",
+    "codepoint": "1F6AA",
+    "sheet": "sheet-22.webp",
+    "col": 0,
+    "row": 2
+  },
+  {
+    "id": "desert",
+    "english": "desert",
+    "chinese": "沙漠",
+    "category": "nature",
+    "codepoint": "1F3DC",
+    "sheet": "sheet-22.webp",
+    "col": 1,
+    "row": 2
+  },
+  {
+    "id": "fountain",
+    "english": "fountain",
+    "chinese": "喷泉",
+    "category": "place",
+    "codepoint": "26F2",
+    "sheet": "sheet-22.webp",
+    "col": 2,
+    "row": 2
+  },
+  {
+    "id": "island",
+    "english": "island",
+    "chinese": "岛",
+    "category": "nature",
+    "codepoint": "1F3DD",
+    "sheet": "sheet-23.webp",
+    "col": 0,
+    "row": 0
+  },
+  {
+    "id": "mountain",
+    "english": "mountain",
+    "chinese": "山",
+    "category": "nature",
+    "codepoint": "26F0",
+    "sheet": "sheet-23.webp",
+    "col": 1,
+    "row": 0
+  },
+  {
+    "id": "volcano",
+    "english": "volcano",
+    "chinese": "火山",
+    "category": "nature",
+    "codepoint": "1F30B",
+    "sheet": "sheet-23.webp",
+    "col": 2,
+    "row": 0
+  },
+  {
+    "id": "tent",
+    "english": "tent",
+    "chinese": "帐篷",
+    "category": "place",
+    "codepoint": "26FA",
+    "sheet": "sheet-23.webp",
+    "col": 0,
+    "row": 1
+  },
+  {
+    "id": "rainbow",
+    "english": "rainbow",
+    "chinese": "彩虹",
+    "category": "nature",
+    "codepoint": "1F308",
+    "sheet": "sheet-23.webp",
+    "col": 1,
+    "row": 1
+  },
+  {
+    "id": "cloud",
+    "english": "cloud",
+    "chinese": "云",
+    "category": "nature",
+    "codepoint": "2601",
+    "sheet": "sheet-23.webp",
+    "col": 2,
+    "row": 1
+  },
+  {
+    "id": "snowman",
+    "english": "snowman",
+    "chinese": "雪人",
+    "category": "nature",
+    "codepoint": "2603",
+    "sheet": "sheet-23.webp",
+    "col": 0,
+    "row": 2
+  },
+  {
+    "id": "snowflake",
+    "english": "snowflake",
+    "chinese": "雪花",
+    "category": "nature",
+    "codepoint": "2744",
+    "sheet": "sheet-23.webp",
+    "col": 1,
+    "row": 2
+  },
+  {
+    "id": "cactus",
+    "english": "cactus",
+    "chinese": "仙人掌",
+    "category": "nature",
+    "codepoint": "1F335",
+    "sheet": "sheet-23.webp",
+    "col": 2,
+    "row": 2
+  },
+  {
+    "id": "waterwave",
+    "english": "waterwave",
+    "chinese": "波浪",
+    "category": "nature",
+    "codepoint": "1F30A",
+    "sheet": "sheet-24.webp",
+    "col": 0,
+    "row": 0
+  },
+  {
+    "id": "fire",
+    "english": "fire",
+    "chinese": "火",
+    "category": "nature",
+    "codepoint": "1F525",
+    "sheet": "sheet-24.webp",
+    "col": 1,
+    "row": 0
+  },
+  {
+    "id": "palm_tree",
+    "english": "palm_tree",
+    "chinese": "棕榈树",
+    "category": "nature",
+    "codepoint": "1F334",
+    "sheet": "sheet-24.webp",
+    "col": 2,
+    "row": 0
+  },
+  {
+    "id": "school",
+    "english": "school",
+    "chinese": "学校",
+    "category": "place",
+    "codepoint": "1F3EB",
+    "sheet": "sheet-24.webp",
+    "col": 0,
+    "row": 1
+  },
+  {
+    "id": "hospital",
+    "english": "hospital",
+    "chinese": "医院",
+    "category": "place",
+    "codepoint": "1F3E5",
+    "sheet": "sheet-24.webp",
+    "col": 1,
+    "row": 1
+  },
+  {
+    "id": "church",
+    "english": "church",
+    "chinese": "教堂",
+    "category": "place",
+    "codepoint": "26EA",
+    "sheet": "sheet-24.webp",
+    "col": 2,
+    "row": 1
+  },
+  {
+    "id": "maple_leaf",
+    "english": "maple_leaf",
+    "chinese": "枫叶",
+    "category": "nature",
+    "codepoint": "1F341",
+    "sheet": "sheet-24.webp",
+    "col": 0,
+    "row": 2
+  },
+  {
+    "id": "earth",
+    "english": "earth",
+    "chinese": "地球",
+    "category": "nature",
+    "codepoint": "1F30E",
+    "sheet": "sheet-24.webp",
+    "col": 1,
+    "row": 2
+  },
+  {
+    "id": "seedling",
+    "english": "seedling",
+    "chinese": "幼苗",
+    "category": "nature",
+    "codepoint": "1F331",
+    "sheet": "sheet-24.webp",
+    "col": 2,
+    "row": 2
+  },
+  {
+    "id": "mushroom_plant",
+    "english": "mushroom_plant",
+    "chinese": "蘑菇",
+    "category": "nature",
+    "codepoint": "1F344",
+    "sheet": "sheet-25.webp",
+    "col": 0,
+    "row": 0
+  },
+  {
+    "id": "rain",
+    "english": "rain",
+    "chinese": "雨",
+    "category": "nature",
+    "codepoint": "1F327",
+    "sheet": "sheet-25.webp",
+    "col": 1,
+    "row": 0
+  },
+  {
+    "id": "lightning",
+    "english": "lightning",
+    "chinese": "闪电",
+    "category": "nature",
+    "codepoint": "26A1",
+    "sheet": "sheet-25.webp",
+    "col": 2,
+    "row": 0
+  },
+  {
+    "id": "checkmark",
+    "english": "checkmark",
+    "chinese": "对勾",
+    "category": "symbol",
+    "codepoint": "2705",
+    "sheet": "sheet-25.webp",
+    "col": 0,
+    "row": 1
+  },
+  {
+    "id": "heart",
+    "english": "heart",
+    "chinese": "心形",
+    "category": "symbol",
+    "codepoint": "2764",
+    "sheet": "sheet-25.webp",
+    "col": 1,
+    "row": 1
+  },
+  {
+    "id": "question",
+    "english": "question",
+    "chinese": "问号",
+    "category": "symbol",
+    "codepoint": "2753",
+    "sheet": "sheet-25.webp",
+    "col": 2,
+    "row": 1
+  },
+  {
+    "id": "smile",
+    "english": "smile",
+    "chinese": "笑脸",
+    "category": "symbol",
+    "codepoint": "1F600",
+    "sheet": "sheet-25.webp",
+    "col": 0,
+    "row": 2
   }
 ]

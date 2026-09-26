@@ -5,9 +5,9 @@ import type { Difficulty } from '../engine';
 
 function challenge() { return moveOcean(moveOcean(createOcean('easy', 42), 1), 2); }
 describe('ocean word quest', () => {
-  it('has 36 unique concrete words and four distinct, unambiguous options', () => {
-    expect(WORDS).toHaveLength(63);
-    expect(new Set(WORDS.map(w => w.id)).size).toBe(63);
+  it('has more than 200 unique concrete words and four distinct, unambiguous options', () => {
+    expect(WORDS.length).toBeGreaterThan(200);
+    expect(new Set(WORDS.map(w => w.id)).size).toBe(WORDS.length);
     for (let level = 1; level <= 9; level++) for (let seed = 1; seed <= 100; seed++) {
       const q = makeWordQuestion(level, seed * 917);
       expect(q.choices).toHaveLength(4);

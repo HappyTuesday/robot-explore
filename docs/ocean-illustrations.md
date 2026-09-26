@@ -1,6 +1,6 @@
 # 深海单词寻宝：识词插画制作说明
 
-63 张独立词卡，列表由 `src/game/ocean/words.json` 管理。消费路径：`public/assets/words/sheet-<nn>.webp`。图片加载完成之前不允许作答，失败时提供重载或放弃，不扣除答题能量。
+223 张独立词卡，列表由 `src/game/ocean/words.json` 管理。消费路径：`public/assets/words/sheet-<nn>.webp`。图片加载完成之前不允许作答，失败时提供重载或放弃，不扣除答题能量。
 
 ## 统一视觉规范
 

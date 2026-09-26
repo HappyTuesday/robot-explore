@@ -3,7 +3,7 @@
   "source_url": "https://github.com/hfg-gmuend/openmoji",
   "license": "CC BY-SA 4.0",
   "grid": "3x3",
-  "word_count": 63,
+  "word_count": 223,
   "sheets": [
     "sheet-01.webp",
     "sheet-02.webp",
@@ -11,6 +11,24 @@
     "sheet-04.webp",
     "sheet-05.webp",
     "sheet-06.webp",
-    "sheet-07.webp"
+    "sheet-07.webp",
+    "sheet-08.webp",
+    "sheet-09.webp",
+    "sheet-10.webp",
+    "sheet-11.webp",
+    "sheet-12.webp",
+    "sheet-13.webp",
+    "sheet-14.webp",
+    "sheet-15.webp",
+    "sheet-16.webp",
+    "sheet-17.webp",
+    "sheet-18.webp",
+    "sheet-19.webp",
+    "sheet-20.webp",
+    "sheet-21.webp",
+    "sheet-22.webp",
+    "sheet-23.webp",
+    "sheet-24.webp",
+    "sheet-25.webp"
   ]
 }
