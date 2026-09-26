@@ -19,16 +19,29 @@ export function sound(type: 'move' | 'boost' | 'drain' | 'correct' | 'win' | 'lo
   } catch { /* Gameplay still works when browser audio is unavailable. */ }
 }
 
+/** Pick a stable, natural English voice instead of relying on browser list order. */
+export function chooseEnglishVoice(voices: SpeechSynthesisVoice[]): SpeechSynthesisVoice | undefined {
+  const english = voices.filter(voice => /^en(?:-|$)/i.test(voice.lang));
+  return english.find(voice => voice.lang.toLowerCase() === 'en-us' && voice.localService)
+    ?? english.find(voice => voice.lang.toLowerCase() === 'en-us')
+    ?? english.find(voice => voice.localService)
+    ?? english[0];
+}
+
 /** Optional English pronunciation; never blocks answering or ignores mute. */
 export function speakWord(word: string): boolean {
   if (!enabled || !('speechSynthesis' in window)) return false;
   try {
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(word);
-    utterance.lang = 'en-US'; utterance.rate = .8; utterance.pitch = 1.1;
-    const voice = window.speechSynthesis.getVoices().find(v => v.lang.startsWith('en'));
-    if (voice) utterance.voice = voice;
-    window.speechSynthesis.speak(utterance);
+    const synthesis = window.speechSynthesis;
+    synthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(word.trim().toLowerCase());
+    utterance.lang = 'en-US';
+    utterance.rate = 0.88;
+    utterance.pitch = 1;
+    utterance.volume = 1;
+    const voice = chooseEnglishVoice(synthesis.getVoices());
+    if (voice) { utterance.voice = voice; utterance.lang = voice.lang; }
+    synthesis.speak(utterance);
     return true;
   } catch { return false; }
 }
