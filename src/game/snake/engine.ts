@@ -11,6 +11,20 @@ function foodFor(state: SnakeState, random = seeded(state.seed + state.score * 9
 export function createSnake(cols = 16, rows = 12, seed = Math.floor(Math.random() * 1e8)): SnakeState { const snake = [{ x: Math.floor(cols / 2), y: Math.floor(rows / 2) }, { x: Math.floor(cols / 2) - 1, y: Math.floor(rows / 2) }]; const state = { cols, rows, snake, food: { x: 2, y: 2 }, direction: 'right' as Direction, queued: 'right' as Direction, score: 0, status: 'playing' as const, seed }; return { ...state, food: foodFor(state) }; }
 const opposite: Record<Direction, Direction> = { up: 'down', down: 'up', left: 'right', right: 'left' };
 export function setDirection(state: SnakeState, direction: Direction): SnakeState { return opposite[state.direction] === direction ? state : { ...state, queued: direction }; }
+export function directionToPoint(state: SnakeState, target: Point): Direction | null {
+  const head = state.snake[0]; const dx = target.x - head.x; const dy = target.y - head.y;
+  if (!dx && !dy) return null;
+  const vectors: Record<Direction, [number, number]> = { up: [0, -1], right: [1, 0], down: [0, 1], left: [-1, 0] };
+  const [hx, hy] = vectors[state.direction];
+  // In screen coordinates, (hy, -hx) points to the snake's left side.
+  const side = dx * hy - dy * hx;
+  if (side === 0) return state.direction;
+  if (state.direction === 'up') return side > 0 ? 'left' : 'right';
+  if (state.direction === 'right') return side > 0 ? 'left' : 'right';
+  if (state.direction === 'down') return side > 0 ? 'left' : 'right';
+  return side > 0 ? 'left' : 'right';
+}
+export function setDirectionToward(state: SnakeState, target: Point): SnakeState { const direction = directionToPoint(state, target); return direction ? setDirection(state, direction) : state; }
 export function tick(state: SnakeState): SnakeState {
   if (state.status !== 'playing') return state;
   const direction = state.queued; const head = state.snake[0]; const delta = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] }[direction]; const next = { x: head.x + delta[0], y: head.y + delta[1] };
