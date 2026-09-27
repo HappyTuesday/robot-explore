@@ -5,7 +5,7 @@ html:has(.game-shell), body:has(.game-shell) { height: 100%; overflow: hidden; o
   display: flex; flex-direction: column; overflow: hidden; background: #fafbf8;
   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
-.game-shell .site-header { flex: 0 0 50px; min-height: 0; height: 50px; width: 100%; max-width: none; padding: 0 24px; }
+.game-shell .site-header { display: none; }
 .game-shell .brand { font-size: 16px; }
 .game-shell .brand-icon { width: 36px; height: 39px; border-radius: 11px; }
 .game-shell .brand-icon svg { width: 49px; height: 55px; }
@@ -15,7 +15,6 @@ html:has(.game-shell), body:has(.game-shell) { height: 100%; overflow: hidden; o
 .game-shell .site-header nav a { font-size: 12px; }
 .game-shell .site-footer { display: none; }
 .game-shell .game-main { display: flex; flex: 1; flex-direction: column; min-height: 0; width: 100%; max-width: none; padding: 4px 16px 10px; margin: 0 auto; }
-.game-shell .game-breadcrumb { flex: 0 0 20px; font-size: 10px; }
 .game-shell .game-heading { flex: 0 0 43px; margin: 0 0 6px; min-height: 0; }
 .game-shell .game-heading .eyebrow, .game-shell .game-heading p { display: none; }
 .game-shell .game-heading h1 { font-size: 25px; margin: 0; }
@@ -88,7 +87,6 @@ html:has(.game-shell), body:has(.game-shell) { height: 100%; overflow: hidden; o
   .game-shell .brand { font-size: 13px; gap: 6px; }
   .game-shell .brand small { font-size: 5px; letter-spacing: 1px; }
   .game-shell .game-main { padding: 4px 12px 10px; }
-  .game-shell .game-breadcrumb { flex-basis: 19px; font-size: 9px; }
   .game-shell .game-heading { flex-basis: 38px; margin-bottom: 5px; }
   .game-shell .game-heading h1 { font-size: 19px; }
   .game-shell .game-heading-actions { gap: 5px; }
@@ -122,7 +120,7 @@ html:has(.game-shell), body:has(.game-shell) { height: 100%; overflow: hidden; o
   .game-shell .site-header { flex-basis: 43px; height: 43px; padding: 0 15px; }
   .game-shell .brand-icon { width: 30px; height: 33px; }
   .game-shell .brand-icon svg { width: 44px; height: 48px; }
-  .game-shell .brand small, .game-shell .game-breadcrumb { display: none; }
+  .game-shell .brand small { display: none; }
   .game-shell .game-main { padding: 3px 12px 8px; }
   .game-shell .game-heading { flex-basis: 40px; margin-bottom: 5px; }
   .game-shell .game-heading h1 { font-size: 18px; }
